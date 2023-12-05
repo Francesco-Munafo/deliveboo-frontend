@@ -1,1 +1,7 @@
-@use "_variable.scss" as *;
+@use "_variables.scss" as *;
+@use "/node_modules/bootstrap/scss/bootstrap.scss";
+
+// *************FOOTER***************
+footer{
+    background-color: $deliv-primary;
+}
