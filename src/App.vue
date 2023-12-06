@@ -1,4 +1,33 @@
 <script>
+<<<<<<< HEAD
+import AppHeader from './components/AppHeader.vue';
+
+export default {
+    name: 'App',
+    data() {
+        return {
+
+        }
+    },
+
+    components: {
+        AppHeader,
+      
+    },
+
+}
+
+</script>
+
+<template>
+  <AppHeader/>
+
+</template>
+
+<style lang="scss" scoped>
+
+</style>
+=======
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import AppHome from "./components/AppHome.vue";
 import AppFooter from "./components/AppFooter.vue";
@@ -28,3 +57,4 @@ export default {
 </template>
 
 <style></style>
+>>>>>>> main
