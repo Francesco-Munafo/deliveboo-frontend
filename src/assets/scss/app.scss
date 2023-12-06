@@ -1,5 +1,6 @@
+@use "_variable.scss" as *;
 @use "/node_modules/bootstrap/scss/bootstrap.scss";
-@use "_variables.scss" as *;
+
 * {
   font-family: "Nunito", sans-serif;
 }
@@ -47,4 +48,8 @@ a {
   padding: 7px 10px;
   border: none;
   border-radius: 5px;
+}
+// *************FOOTER***************
+footer {
+  background-color: $deliv-primary;
 }
