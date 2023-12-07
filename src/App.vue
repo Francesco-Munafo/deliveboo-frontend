@@ -1,11 +1,13 @@
 <script>
 import AppFooter from './components/AppFooter.vue';
+import AppBrands from './components/AppBrands.vue';
 import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
     AppFooter,
+    AppBrands,
 
   },
   data() {
@@ -27,6 +29,7 @@ export default {
 </script>
 
 <template>
+  <AppBrands></AppBrands>
   <AppFooter></AppFooter>
 </template>
 
