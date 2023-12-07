@@ -1,7 +1,58 @@
+
 @use "_variables.scss" as *;
 @use "/node_modules/bootstrap/scss/bootstrap.scss";
 
-// *************FOOTER***************
-footer{
-    background-color: $deliv-primary;
+
+* {
+  font-family: "Nunito", sans-serif;
 }
+/* section home tipi di cucina */
+a {
+  text-decoration: none;
+  color: $deliv-black;
+}
+.img_check {
+  background-size: cover;
+  color: $deliv-light;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease-in-out;
+}
+.img_ita {
+  background-image: url(../img/cucina_italiana_2.jpeg);
+}
+.img_cinese {
+  background-image: url(../img/cucina_cinese.jpeg);
+}
+.img_messicana {
+  background-image: url(../img/cucina_messicana.jpeg);
+}
+.hover_effect:hover {
+  color: $deliv-primary;
+}
+.bor_color {
+  border: 2px solid $deliv-primary;
+  box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.6);
+  border-radius: 5%;
+}
+.img_check:hover {
+  transform: scale(1.2);
+}
+.bg_color:hover {
+  transform: scale(1.2);
+}
+.form-check-input:checked {
+  border-color: $deliv-dark;
+  background-color: $deliv-primary;
+}
+.bg_color {
+  background-color: $deliv-primary;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 5px;
+}
+// *************FOOTER***************
+footer {
+  background-color: $deliv-primary;
+}
+
