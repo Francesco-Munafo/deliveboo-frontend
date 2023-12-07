@@ -15,12 +15,12 @@ export default {
 
 
 <template>
-<div class="container my-5 text-center">
+<div class="container my-5 text-center py-5">
     <h3 class="mb-4 fs-2 p-2 text-black">I ristoranti con cui collaboriamo</h3>
-    <div id="brandsCarousel" class="carousel slide mt-4" data-bs-ride="carousel" data-bs-interval="2000">
+    <div id="brandsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 
         <!-- Carousel indicators -->
-        <div class="carousel-indicators">
+        <div class="carousel-indicators custom-indicators">
             <button type="button" data-bs-target="#brandsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#brandsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#brandsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
@@ -29,7 +29,7 @@ export default {
         <!-- Wrapper for carousel items -->
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-1.png" alt="Brand 1" class="img-fluid"></div>
                     <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-2.jpeg" alt="Brand 2" class="img-fluid"></div>
                     <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-3.png" alt="Brand 3" class="img-fluid"></div>
@@ -38,7 +38,7 @@ export default {
             </div>
 
             <div class="carousel-item">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-5.jpeg" alt="Brand 5" class="img-fluid"></div>
                     <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-6.png" alt="Brand 6" class="img-fluid"></div>
                     <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-7.jpeg" alt="Brand 7" class="img-fluid"></div>
@@ -47,7 +47,7 @@ export default {
             </div>
 
             <div class="carousel-item">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-9.png" alt="Brand 9" class="img-fluid"></div>
                     <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-10.png" alt="Brand 10" class="img-fluid"></div>
                     <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-11.png" alt="Brand 11" class="img-fluid"></div>
@@ -94,6 +94,12 @@ export default {
 
 }
 
+.custom-indicators{
+    bottom:-45px;
+}
+.carousel-inner{
+    height:300px;
+}
 
 </style>
 

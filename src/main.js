@@ -5,6 +5,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
+import {router} from './router.js'
 
 import App from "./App.vue";
 
@@ -18,4 +19,5 @@ import {
 
 library.add(faAtlassian, faFacebookF, faTwitter, faYoutube, faInstagram);
 
-createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
+createApp(App).component("font-awesome-icon", FontAwesomeIcon).use(router).mount("#app");
+

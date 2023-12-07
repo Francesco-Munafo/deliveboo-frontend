@@ -76,7 +76,7 @@ export default {
             </div>
           </div>
           <div class="d-flex justify-content-center pt-5">
-            <button class="pt-2 bg_color text-white">Cerca</button>
+            <router-link to="/restaurants" class="pt-2 bg_color text-white" >Cerca</router-link>
           </div>
         </form>
       </div>
