@@ -1,38 +1,68 @@
 <script>
+
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import AppHeader from './components/AppHeader.vue';
 import AppHome from "./components/AppHome.vue";
 import AppFooter from "./components/AppFooter.vue";
 import AppInfo from "./components/AppInfo.vue";
 import axios from "axios";
-export default {
-  name: "App",
 
+
+
+
+import AppBrands from './components/AppBrands.vue';
+
+
+
+
+
+export default {
+  name: 'App',
   data() {
     return {
       FontAwesomeIcon,
-    };
+    }
   },
 
   components: {
     AppHeader,
+
     AppHome,
-    AppFooter,
+  
     AppInfo,
+
+    AppFooter,
+    AppBrands,
+
+
   },
-  methods: {},
+
 
   mounted() {}
 };
 </script>
 
+
+
+ 
+
+
+
+
+
 <template>
-  <AppHeader></AppHeader> 
-  <AppHome></AppHome>
+  <AppHeader />
+    <AppHome></AppHome>
+  <router-view></router-view>
+
   <AppInfo></AppInfo>
   <AppFooter></AppFooter>
              
 </template>
 
-<style></style>
+
+
+<style lang="scss" scoped></style>
+
+
 
