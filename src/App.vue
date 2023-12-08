@@ -2,7 +2,7 @@
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import AppHeader from './components/AppHeader.vue';
-import AppHome from "./components/AppHome.vue";
+
 import AppFooter from "./components/AppFooter.vue";
 import AppInfo from "./components/AppInfo.vue";
 import axios from "axios";
@@ -27,7 +27,6 @@ export default {
   components: {
     AppHeader,
 
-    AppHome,
   
     AppInfo,
 
@@ -52,7 +51,7 @@ export default {
 
 <template>
   <AppHeader />
-    <AppHome></AppHome>
+   
   <router-view></router-view>
 
   <AppInfo></AppInfo>
