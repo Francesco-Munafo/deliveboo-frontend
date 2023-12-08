@@ -32,127 +32,67 @@ export default {
 
 
         <section>
-            <div class="container">
-                <div class="carousel">
-                    <input type="radio" name="slides" checked="checked" id="slide-1">
-                    <input type="radio" name="slides" id="slide-2">
-                    <input type="radio" name="slides" id="slide-3">
-                    <input type="radio" name="slides" id="slide-4">
-                    <input type="radio" name="slides" id="slide-5">
-                    <input type="radio" name="slides" id="slide-6">
-                    <ul class="carousel__slides">
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://pbs.twimg.com/media/Djgq44jW4AAszE9.jpg" alt="">
-                                </div>
-                                <figcaption>
-
-                                    <span class="credit">Le mitiche BBQ Ribs</span>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://www.sushi-origami.it/wp-content/uploads/2019/04/DSCF2703-768x514.jpg"
-                                        alt="">
-                                </div>
-                                <figcaption>
-
-                                    <span class="credit">Barca sushi misto</span>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://th.bing.com/th/id/R.c5046015fea5a538b5e046fe2245b602?rik=TDqapn3oMYyHuQ&pid=ImgRaw&r=0"
-                                        alt="">
-                                </div>
-                                <figcaption>
-
-                                    <span class="credit">Spaghetti allo scoglio</span>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://th.bing.com/th/id/OIP.umUl8oJLZzAcYHFuIrzxdwHaE7?rs=1&pid=ImgDetMain"
-                                        alt="">
-                                </div>
-                                <figcaption>
-
-                                    <span class="credit">Regina di Napoli</span>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://th.bing.com/th/id/R.f45c07e5ee763be2ab986f9849f1d8e1?rik=phQAhFfB13ddxg&pid=ImgRaw&r=0"
-                                        alt="">
-                                </div>
-                                <figcaption>
-
-                                    <span class="credit">Classic burger XXL</span>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://th.bing.com/th/id/R.363cbe94bb1935910e68fbbeb0a732b0?rik=A%2b8ZSWsEcVWgHA&pid=ImgRaw&r=0"
-                                        alt="">
-                                </div>
-                                <figcaption>
-
-                                    <span class="credit">Tacos di carne</span>
-                                </figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                    <ul class="carousel__thumbnails">
-                        <li>
-                            <label for="slide-1"><img src="https://pbs.twimg.com/media/Djgq44jW4AAszE9.jpg" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-2"><img
-                                    src="https://www.sushi-origami.it/wp-content/uploads/2019/04/DSCF2703-768x514.jpg"
-                                    alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-3"><img
-                                    src="https://th.bing.com/th/id/R.c5046015fea5a538b5e046fe2245b602?rik=TDqapn3oMYyHuQ&pid=ImgRaw&r=0"
-                                    alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-4"><img
-                                    src="https://th.bing.com/th/id/OIP.umUl8oJLZzAcYHFuIrzxdwHaE7?rs=1&pid=ImgDetMain"
-                                    alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-5"><img
-                                    src="https://th.bing.com/th/id/R.f45c07e5ee763be2ab986f9849f1d8e1?rik=phQAhFfB13ddxg&pid=ImgRaw&r=0"
-                                    alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-6"><img
-                                    src="https://th.bing.com/th/id/R.363cbe94bb1935910e68fbbeb0a732b0?rik=A%2b8ZSWsEcVWgHA&pid=ImgRaw&r=0"
-                                    alt=""></label>
-                        </li>
-                    </ul>
+            <div class="slider">
+                <div class="slide-track">
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1606149059549-6042addafc5a?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1541151040323-4d766525ec84?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1540713434306-58505cf1b6fc?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1180&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1528279027-68f0d7fce9f1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://plus.unsplash.com/premium_photo-1663858367001-89e5c92d1e0e?q=80&w=1315&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://plus.unsplash.com/premium_photo-1675453377179-22d446fe10ad?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=1380&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1562059390-a761a084768e?q=80&w=1419&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="" />
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?q=80&w=1180&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="" />
+                    </div>
                 </div>
             </div>
         </section>
-
-
-
-
-
-
-
 
 
     </div>
@@ -161,206 +101,86 @@ export default {
 
 <style lang="scss" scoped>
 @use "../assets/scss/variables" as *;
-@mixin aspect-ratio($width, $height) {
-    position: relative;
 
-    &:before {
-        display: block;
-        content: "";
-        width: 100%;
-        padding-top: calc($height / $width) * 100%;
+
+
+@mixin white-gradient {
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+$animationSpeed: 40s;
+
+// Animation
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
     }
 
-    >img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
+    100% {
+        transform: translateX(calc(-250px * 7))
     }
 }
+
 
 // Styling
-
-
-
-.container {
-    max-width: 1044px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.carousel {
-    display: block;
-    text-align: left;
-    position: relative;
-    margin-bottom: 22px;
-
-    >input {
-        clip: rect(1px, 1px, 1px, 1px);
-        clip-path: inset(50%);
-        height: 1px;
-        width: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-
-        &:nth-of-type(6):checked~.carousel__slides .carousel__slide:first-of-type {
-            margin-left: -500%;
-        }
-
-        &:nth-of-type(5):checked~.carousel__slides .carousel__slide:first-of-type {
-            margin-left: -400%;
-        }
-
-        &:nth-of-type(4):checked~.carousel__slides .carousel__slide:first-of-type {
-            margin-left: -300%;
-        }
-
-        &:nth-of-type(3):checked~.carousel__slides .carousel__slide:first-of-type {
-            margin-left: -200%;
-        }
-
-        &:nth-of-type(2):checked~.carousel__slides .carousel__slide:first-of-type {
-            margin-left: -100%;
-        }
-
-        &:nth-of-type(1):checked~.carousel__slides .carousel__slide:first-of-type {
-            margin-left: 0%;
-        }
-
-        &:nth-of-type(1):checked~.carousel__thumbnails li:nth-of-type(1) {
-            box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-        }
-
-        &:nth-of-type(2):checked~.carousel__thumbnails li:nth-of-type(2) {
-            box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-        }
-
-        &:nth-of-type(3):checked~.carousel__thumbnails li:nth-of-type(3) {
-            box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-        }
-
-        &:nth-of-type(4):checked~.carousel__thumbnails li:nth-of-type(4) {
-            box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-        }
-
-        &:nth-of-type(5):checked~.carousel__thumbnails li:nth-of-type(5) {
-            box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-        }
-
-        &:nth-of-type(6):checked~.carousel__thumbnails li:nth-of-type(6) {
-            box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
-        }
-    }
-}
-
-.carousel__slides {
-    position: relative;
-    z-index: 1;
-    padding: 0;
-    margin: 0;
+.slider {
+    background: white;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+    margin: auto;
     overflow: hidden;
-    white-space: nowrap;
-    box-sizing: border-box;
-    display: flex;
-}
-
-.carousel__slide {
     position: relative;
-    display: block;
-    flex: 1 0 100%;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
-    transition: all 300ms ease-out;
-    vertical-align: top;
-    box-sizing: border-box;
-    white-space: normal;
 
-    figure {
+    &::before,
+    &::after {
+        @include white-gradient;
+        content: "";
+        height: 50px;
+        position: absolute;
+        width: 10%;
+        z-index: 2;
+    }
+
+    &::after {
+        right: 0;
+        top: 0;
+        transform: rotateZ(180deg);
+    }
+
+    &::before {
+        left: 0;
+        top: 0;
+    }
+
+    .slide-track {
+        animation: scroll $animationSpeed linear infinite;
         display: flex;
-        margin: 0;
+        width: calc(250px * 14);
     }
 
-    div {
-        @include aspect-ratio(3, 2);
-        width: 100%;
-    }
-
-    img {
-        display: block;
-        flex: 1 1 auto;
-        object-fit: cover;
-    }
-
-    figcaption {
-        align-self: flex-end;
-        padding: 20px 20px 0 20px;
-        flex: 0 0 auto;
-        width: 25%;
-        min-width: 150px;
-    }
-
-    .credit {
-        margin-top: 1rem;
-        color: black;
-        display: block;
-        font-family: cursive;
-    }
-
-    &.scrollable {
-        overflow-y: scroll;
-    }
-}
-
-.carousel__thumbnails {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-
-    margin: 0 -10px;
-
-    .carousel__slides+& {
-        margin-top: 20px;
-    }
-
-    li {
-        flex: 1 1 auto;
-        max-width: calc((100% / 6) - 20px);
-        margin: 0 10px;
-        transition: all 300ms ease-in-out;
-    }
-
-    label {
-        display: block;
-        @include aspect-ratio(1, 1);
-
-
-        &:hover,
-        &:focus {
-            cursor: pointer;
-
-            img {
-                box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
-                transition: all 300ms ease-in-out;
-            }
-        }
+    .slide {
+        height: 135px;
+        width: 70%;
+        max-width: 250px;
+        padding: 0 5px;
     }
 
     img {
-        display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .slide {
+            width: 90%;
+        }
     }
 
 
 }
+
 
 
 .my_navbar {
@@ -369,45 +189,48 @@ export default {
 
 .my_jumbo {
     background-color: $deliv-primary;
+
 }
 
 .my_title {
-    font-size: 3.8rem;
+    font-size: 3.5rem;
     color: $deliv-elements;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 
-.btn5{
-    display:inline-block;
-    padding:0.7em 1.4em;
-    margin:0 0.3em 0.3em 0;
-    border:none;
-    border-radius:0.5em;
+.btn5 {
+    display: inline-block;
+    padding: 0.7em 1.4em;
+    margin: 0 0.3em 0.3em 0;
+    border: none;
+    border-radius: 0.5em;
     box-sizing: border-box;
-    text-decoration:none;
-    font-family:'arial';
-    text-transform:uppercase;
-    font-weight:400;
-    color:#FFFFFF;
-    background-color:$deliv-elements;
-    box-shadow:inset 0 -0.6em 0 -0.3em rgba(0,0,0,0.20);
-    text-align:center;
-    position:relative;
-    cursor:pointer;
-  }
-  .btn5:hover{
-    background:#E64B3E;
-  }
-  .btn5:active{
-    background:#D7372A;
-    top:0.15em;
-    color:#D9D9D9;
-    box-shadow:none;
-  }
+    text-decoration: none;
+    font-family: 'arial';
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #FFFFFF;
+    background-color: $deliv-elements;
+    box-shadow: inset 0 -0.6em 0 -0.3em rgba(0, 0, 0, 0.20);
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
 
-  span {
-    font-size: 3rem;
+.btn5:hover {
+    background: #E64B3E;
+}
+
+.btn5:active {
+    background: #D7372A;
+    top: 0.15em;
+    color: #D9D9D9;
+    box-shadow: none;
+}
+
+span {
+    font-size: 2.5rem;
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: $deliv-elements;
@@ -417,5 +240,4 @@ export default {
 section {
     background: $deliv-primary;
     padding: 50px 0;
-}
-</style>
+}</style>
