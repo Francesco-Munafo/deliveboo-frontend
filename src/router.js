@@ -4,14 +4,23 @@ import { createWebHashHistory, createRouter } from "vue-router";
 // 1. Define route components.
 import HomeView from "./views/HomeView.vue";
 import RestaurantsView from "./views/RestaurantsView.vue";
-
-
-
+import DishesViuw from "./views/DishesView.vue";
 // 2. Define some routes
 const routes = [
   { path: "/", name: "Home", component: HomeView },
-  { path: "/restaurants", name: "Restaurants", component: RestaurantsView },
-
+  {
+    path: "/types/:slug+",
+    name: "Restaurants",
+    component: RestaurantsView,
+  },
+  //////////////////////////////////
+  /* {
+    path: "/search/tool-based/:slug+",
+    name: "toolBasedSearch",
+    component: () => import("@/views/tool-search/ToolBasedSearchView.vue"),
+  }, */
+  //////////////////////////////////
+  { path: "/dishes", name: "Dishes", component: DishesViuw },
 ];
 
 // 3. Create the router instance and pass the `routes` option
