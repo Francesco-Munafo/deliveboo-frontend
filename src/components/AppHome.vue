@@ -76,42 +76,43 @@ export default {
 <template>
   <main>
     <section>
-      <div class="container">
+      <div class="container mt-5">
         <h2 class="text-center">Seleziona il tipo di cucina</h2>
-        <div>
-          <div class="row gap-3">
-            <div
-              class="form-check img_check img_ita bor_color d-flex justify-content-center gap-2 col px-5 py-3"
-              v-for="(typ, index) in this.types"
-              :key="typ.id"
-            >
-              <input
-                class="form-check-input"
-                type="checkbox"
-                :value="typ.checked"
-                :id="typ.slug"
-                @change="getSlug(index)"
-              />
-              <label class="hover_effect custom-control-label" :for="typ.slug">
-                {{ typ.name }}
-              </label>
-            </div>
+
+        <div
+          class="row row-cols-1 row-cols-sm-3 row-cols-md-5 row-cols-lg-5 gap-4 justify-content-center pt-5"
+        >
+          <div
+            class="form-check img_check img_ita bor_color d-flex justify-content-center gap-2 px-5 py-3"
+            v-for="(typ, index) in this.types"
+            :key="typ.id"
+          >
+            <input
+              class="form-check-input"
+              type="checkbox"
+              :value="typ.checked"
+              :id="typ.slug"
+              @change="getSlug(index)"
+            />
+            <label class="hover_effect custom-control-label" :for="typ.slug">
+              {{ typ.name }}
+            </label>
           </div>
+        </div>
+        <div class="d-flex justify-content-center pt-5">
           <div class="d-flex justify-content-center pt-5">
-            <div class="d-flex justify-content-center pt-5">
-              <router-link
-                :to="{
-                  name: 'Restaurants',
-                  params: {
-                    slug:
-                      this.selectedTypes.length > 0 && handleSlug().split('/'),
-                  },
-                }"
-                class="pt-2 bg_color text-white"
-              >
-                Cerca
-              </router-link>
-            </div>
+            <router-link
+              :to="{
+                name: 'Restaurants',
+                params: {
+                  slug:
+                    this.selectedTypes.length > 0 && handleSlug().split('/'),
+                },
+              }"
+              class="pt-2 bg_color text-white text-decoration-none"
+            >
+              Cerca
+            </router-link>
           </div>
         </div>
       </div>
