@@ -7,6 +7,7 @@ export default {
     return {
       url_restourant: `http://127.0.0.1:8000/api${this.$route.path}`,
       selectedRestaurants: [],
+      base_url: 'http://127.0.0.1:8000/',
     };
   },
   methods: {
@@ -21,6 +22,13 @@ export default {
           console.error(err);
         });
     },
+    getImageUrl(coverImage) {
+      if (coverImage && coverImage.includes("http")) {
+        return coverImage;
+      } else {
+        return "http://127.0.0.1:8000/storage/" + coverImage;
+      }
+    },
   },
   mounted() {
     this.getRestourant(this.url_restourant);
@@ -33,214 +41,171 @@ export default {
 
 
 <template>
-  <!-- TO DO: 
-  -CHIEDERE SE PREFERISCONO UN CONTAINER O PIù
-  -COSA AGGIUNGERE -->
-  <!-- -sidebar si o no -->
-  <div class="container-fluid my-5">
-    <div class="row">
-      <div class="col-md-3 col-lg-2 d-none d-md-block bg-light sidebar">
-        <!-- parte per i filtri -->
+  <!-- I FANTASTICI MENù -->
+
+  <div class="container my-5">
+    <div class="row text-center">
+      <h2>Scopri i nostri fantastici menù</h2>
+      <div class="col bg-info p-3">
+        <div class="card">
+          <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome del Piatto">
+          <div class="card-body">
+            <p class="card-text">Nome del Piatto</p>
+          </div>
+        </div>
       </div>
-      <!-- I FANTASTICI MENù -->
-      <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div class="container my-5">
-          <div class="row text-center">
-            <h2>Scopri i nostri fantastici menù</h2>
-            <div class="col bg-info p-3">
-              <div class="card">
-                <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome del Piatto">
-                <div class="card-body">
-                  <p class="card-text">Nome del Piatto</p>
-                </div>
-              </div>
-            </div>
-            <div class="col bg-info p-3">
-              <div class="card">
-                <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome del Piatto">
-                <div class="card-body">
-                  <p class="card-text">Nome del Piatto</p>
-                </div>
-              </div>
-            </div>
-            <div class="col bg-info p-3">
-              <div class="card">
-                <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome del Piatto">
-                <div class="card-body">
-                  <p class="card-text">Nome del Piatto</p>
-                </div>
-              </div>
-            </div>
-            <div class="col bg-info p-3">
-              <div class="card">
-                <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome del Piatto">
-                <div class="card-body">
-                  <p class="card-text">Nome del Piatto</p>
-                </div>
-              </div>
-            </div>
-            <div class="col bg-info p-3">
-              <div class="card">
-                <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome del Piatto">
-                <div class="card-body">
-                  <p class="card-text">Nome del Piatto</p>
-                </div>
-              </div>
-            </div>
-            <div class="col bg-info p-3">
-              <div class="card">
-                <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome del Piatto">
-                <div class="card-body">
-                  <p class="card-text">Nome del Piatto</p>
-                </div>
-              </div>
-            </div>
+      <div class="col bg-info p-3">
+        <div class="card">
+          <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome del Piatto">
+          <div class="card-body">
+            <p class="card-text">Nome del Piatto</p>
           </div>
         </div>
-
-
-        <!-- I NOSTRI RISTORANTI -->
-        <div class="container my-5">
-          <div class="row text-center">
-            <h2>I nostri ristoranti</h2>
-            <div class="col">
-              <div class="card">
-                <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome Ristorante">
-                <div class="card-body">
-                  <p class="card-text">Descrizione del Ristorante</p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome Ristorante">
-                <div class="card-body">
-                  <p class="card-text">Descrizione del Ristorante</p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome Ristorante">
-                <div class="card-body">
-                  <p class="card-text">Descrizione del Ristorante</p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome Ristorante">
-                <div class="card-body">
-                  <p class="card-text">Descrizione del Ristorante</p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome Ristorante">
-                <div class="card-body">
-                  <p class="card-text">Descrizione del Ristorante</p>
-                </div>
-              </div>
-            </div>
+      </div>
+      <div class="col bg-info p-3">
+        <div class="card">
+          <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome del Piatto">
+          <div class="card-body">
+            <p class="card-text">Nome del Piatto</p>
           </div>
         </div>
-
-
-        <!-- I RISTORANTI PIù VOTATI -->
-        <div class="container my-5">
-          <div class="row text-center">
-            <h2>I nostri ristoranti più apprezzati</h2>
-            <div class="col">
-              <div class="card">
-                <div class="row no-gutters">
-                  <div class="col-md-4">
-                    <img src="https://picsum.photos/200/200" class="card-img h-100" alt="Nome Ristorante">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <p class="card-text">Informazioni sul Ristorante</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card">
-                <div class="row no-gutters">
-                  <div class="col-md-4">
-                    <img src="https://picsum.photos/200/200" class="card-img h-100" alt="Nome Ristorante">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <p class="card-text">Informazioni sul Ristorante</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="col">
-              <div class="card">
-                <div class="row no-gutters">
-                  <div class="col-md-4">
-                    <img src="https://picsum.photos/200/200" class="card-img h-100" alt="Nome Ristorante">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <p class="card-text">Informazioni sul Ristorante</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="col">
-              <div class="card">
-                <div class="row no-gutters">
-                  <div class="col-md-4">
-                    <img src="https://picsum.photos/200/200" class="card-img h-100" alt="Nome Ristorante">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <p class="card-text">Informazioni sul Ristorante</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="col">
-              <div class="card">
-                <div class="row no-gutters">
-                  <div class="col-md-4">
-                    <img src="https://picsum.photos/200/200" class="card-img h-100" alt="Nome Ristorante">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <p class="card-text">Informazioni sul Ristorante</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      </div>
+      <div class="col bg-info p-3">
+        <div class="card">
+          <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome del Piatto">
+          <div class="card-body">
+            <p class="card-text">Nome del Piatto</p>
           </div>
         </div>
-
+      </div>
+      <div class="col bg-info p-3">
+        <div class="card">
+          <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome del Piatto">
+          <div class="card-body">
+            <p class="card-text">Nome del Piatto</p>
+          </div>
+        </div>
+      </div>
+      <div class="col bg-info p-3">
+        <div class="card">
+          <img class="card-img-top" src="https://picsum.photos/200/200" alt="Nome del Piatto">
+          <div class="card-body">
+            <p class="card-text">Nome del Piatto</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
+
+  <!-- I NOSTRI RISTORANTI -->
+  <div class="container my-5">
+    <div class="row text-center">
+      <h2>I nostri ristoranti</h2>
+      <div class="col-md-4 d-flex mb-4" v-for="restaurant in selectedRestaurants">
+        <div class="card flex-fill">
+          <img class="card-img-top" :src="getImageUrl(restaurant.image)" alt="Nome Ristorante">
+          <div class="card-body d-flex justify-content-between flex-column">
+            <h3>{{ restaurant.name }}</h3>
+            <p class="card-text">{{ restaurant.description }}</p>
+            <p class="card-text">
+              <font-awesome-icon icon="fa-solid fa-location-dot" style='color:#3d348b;' /> {{ restaurant.address }}
+            </p>
+            <router-link to="/dishes" class="btn bg-warning text-white">Vai al ristorante</router-link>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- I RISTORANTI PIù VOTATI -->
+  <div class="container my-5">
+    <div class="row text-center">
+      <h2>I nostri ristoranti più apprezzati</h2>
+      <div class="col">
+        <div class="card">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="https://picsum.photos/200/200" class="card-img h-100" alt="Nome Ristorante">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-text">Informazioni sul Ristorante</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="https://picsum.photos/200/200" class="card-img h-100" alt="Nome Ristorante">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-text">Informazioni sul Ristorante</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col">
+        <div class="card">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="https://picsum.photos/200/200" class="card-img h-100" alt="Nome Ristorante">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-text">Informazioni sul Ristorante</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col">
+        <div class="card">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="https://picsum.photos/200/200" class="card-img h-100" alt="Nome Ristorante">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-text">Informazioni sul Ristorante</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col">
+        <div class="card">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="https://picsum.photos/200/200" class="card-img h-100" alt="Nome Ristorante">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-text">Informazioni sul Ristorante</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 
-<style lang="scss">
-
-
-</style>
+<style lang="scss"></style>
 
 

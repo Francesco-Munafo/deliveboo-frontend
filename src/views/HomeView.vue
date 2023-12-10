@@ -2,6 +2,7 @@
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import AppHome from '../components/AppHome.vue';
 import AppBrands from '../components/AppBrands.vue';
+import AppInfo from "../components/AppInfo.vue";
 
 export default {
   name:
@@ -16,6 +17,7 @@ export default {
   components: {
     AppHome,
     AppBrands,
+    AppInfo,
   }
 };
 </script>
@@ -23,4 +25,5 @@ export default {
 <template>
   <AppHome></AppHome>
   <AppBrands></AppBrands>
+  <AppInfo></AppInfo>
 </template>

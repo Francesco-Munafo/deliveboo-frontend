@@ -14,8 +14,11 @@ import {
   faYoutube,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+import {
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(faAtlassian, faFacebookF, faTwitter, faYoutube, faInstagram);
+library.add(faAtlassian, faFacebookF, faTwitter, faYoutube, faInstagram,faLocationDot);
 
 createApp(App)
   .component("font-awesome-icon", FontAwesomeIcon)

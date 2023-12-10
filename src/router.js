@@ -13,13 +13,7 @@ const routes = [
     name: "Restaurants",
     component: RestaurantsView,
   },
-  //////////////////////////////////
-  /* {
-    path: "/search/tool-based/:slug+",
-    name: "toolBasedSearch",
-    component: () => import("@/views/tool-search/ToolBasedSearchView.vue"),
-  }, */
-  //////////////////////////////////
+
   { path: "/dishes", name: "Dishes", component: DishesViuw },
 ];
 
