@@ -3,12 +3,8 @@
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from "./components/AppFooter.vue";
-import axios from "axios";
-
-
-
-
 import AppBrands from './components/AppBrands.vue';
+import axios from "axios";
 
 
 
