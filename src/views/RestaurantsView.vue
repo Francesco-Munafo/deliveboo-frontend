@@ -50,6 +50,7 @@ export default {
 
   <div class="container my-5">
     <div class="row text-center">
+      <router-link to="/cart">CART</router-link>
       <h2>Scopri i nostri fantastici menù</h2>
       <div class="col bg-info p-3">
         <div class="card">
@@ -150,11 +151,12 @@ export default {
               />
               {{ restaurant.address }}
             </p>
+
             <router-link
               to="/dishes"
               class="btn bg-warning text-white text-decoration-none"
-              >Vai al ristorante</router-link
-            >
+              >Vai al ristorante</router-link>
+
           </div>
         </div>
       </div>
