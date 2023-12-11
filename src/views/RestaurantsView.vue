@@ -20,6 +20,7 @@ export default {
         })
         .catch((err) => {
           console.error(err);
+          this.$router.push({ name: 'Page404' });
         });
     },
     getImageUrl(coverImage) {
