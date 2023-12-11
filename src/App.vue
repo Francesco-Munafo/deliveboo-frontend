@@ -7,7 +7,7 @@ import axios from "axios";
 
 
 
-
+import AppNavbar from "./components/AppNavbar.vue";
 import AppBrands from './components/AppBrands.vue';
 
 
@@ -26,6 +26,7 @@ export default {
     AppHeader,
     AppFooter,
     AppBrands,
+    AppNavbar,
 
 
   },
@@ -44,6 +45,7 @@ export default {
 
 
 <template>
+  <AppNavbar></AppNavbar>
   <AppHeader />
 
   <router-view></router-view>
