@@ -45,6 +45,7 @@ export default {
 
   <div class="container my-5">
     <div class="row text-center">
+      <router-link to="/cart">CART</router-link>
       <h2>Scopri i nostri fantastici menù</h2>
       <div class="col bg-info p-3">
         <div class="card">
@@ -111,7 +112,7 @@ export default {
             <p class="card-text">
               <font-awesome-icon icon="fa-solid fa-location-dot" style='color:#3d348b;' /> {{ restaurant.address }}
             </p>
-            <router-link to="/dishes" class="btn bg-warning text-white">Vai al ristorante</router-link>
+            <router-link :to="{name: 'SingleRestaurant', params:{slug:restaurant.slug}}" class="btn bg-warning text-white">Vai al ristorante</router-link>
           </div>
         </div>
       </div>
