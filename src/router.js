@@ -6,6 +6,8 @@ import HomeView from "./views/HomeView.vue";
 import RestaurantsView from "./views/RestaurantsView.vue";
 import SingleRestaurantView from "./views/SingleRestaurantView.vue";
 import CartView from "./views/CartView.vue";
+
+
 // 2. Define some routes
 const routes = [
   { path: "/", name: "Home", component: HomeView },
@@ -15,8 +17,10 @@ const routes = [
     component: RestaurantsView,
   },
 
+
   { path: "/restaurants/:slug", name: "SingleRestaurantView", component: SingleRestaurantView },
   { path: "/cart", name: "Cart", component: CartView },
+
 ];
 
 // 3. Create the router instance and pass the `routes` option

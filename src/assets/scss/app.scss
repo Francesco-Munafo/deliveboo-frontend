@@ -1,7 +1,5 @@
-
 @use "_variables.scss" as *;
 @use "/node_modules/bootstrap/scss/bootstrap.scss";
-
 
 * {
   font-family: "Nunito", sans-serif;
@@ -19,7 +17,8 @@ a {
   transition: transform 0.3s ease-in-out;
 }
 .img_ita {
-  background-image: url(../img/cucina_italiana_2.jpeg);
+  /* background-image: url(../img/cucina_italiana_2.jpeg); */
+  background-color: $deliv-elements;
 }
 .img_cinese {
   background-image: url(../img/cucina_cinese.jpeg);
@@ -42,8 +41,8 @@ a {
   transform: scale(1.2);
 }
 .form-check-input:checked {
-  border-color: $deliv-dark;
-  background-color: $deliv-primary;
+  border-color: $deliv-dark !important;
+  background-color: $deliv-primary !important;
 }
 .bg_color {
   background-color: $deliv-primary;
@@ -55,4 +54,3 @@ a {
 footer {
   background-color: $deliv-primary;
 }
-
