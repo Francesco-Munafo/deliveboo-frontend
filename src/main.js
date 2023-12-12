@@ -18,7 +18,11 @@ import {
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faAtlassian, faFacebookF, faTwitter, faYoutube, faInstagram,faLocationDot);
+import {
+  faCartShopping,
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(faAtlassian, faFacebookF, faTwitter, faYoutube, faInstagram,faLocationDot,faCartShopping);
 
 createApp(App)
   .component("font-awesome-icon", FontAwesomeIcon)
