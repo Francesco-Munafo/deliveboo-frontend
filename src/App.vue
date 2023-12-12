@@ -24,7 +24,7 @@ export default {
     AppNavbar,
   },
 
-  mounted() {},
+  mounted() { },
 };
 </script>
 

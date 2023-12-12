@@ -9,71 +9,93 @@ export default {
 
 
 <template>
-
-<div class="my_navbar">
-        <nav class="navbar navbar-expand-lg  d-flex justify-content-around">
-            <div>
-
-                <a class="navbar-brand" href="#"><span>DeliveBoo</span></a>
-
+    <header class="bg_color navbar py-3 px-1 p-sm-3 p-md-1 shadow">
+        <div class="container-lg">
+            <div class="d-none d-md-flex align-items-center">
+                <img style="width: 80px" src="/src/assets/img/wired-lineal-13-pizza.gif" alt="pizza">
+                <img style="width: 200px" src="/src/assets/img/Screenshot_2023-12-09_153609-removebg-preview.png"
+                    alt="logo">
             </div>
+            <div class="d-flex gap-3">
+                <button class="d-none d-sm-block btn header-button">
+                    <a class="col_select text-decoration-none" href="/">
+                        <i class="fa-solid fa-house"></i> Home
+                    </a>
+                </button>
 
-            <div>
-
-                <button class="btn5" type="submit">Login</button>
-
+                <button class="btn header-registration-button">
+                    <a class="col_white text-decoration-none" href="http://127.0.0.1:8000/login">
+                        <i class="fa-solid fa-user"></i> Sei un ristoratore?
+                    </a>
+                </button>
             </div>
-        </nav>
-    </div>
+        </div>
+    </header>
 </template>
+
+
+
 
 <style lang="scss" scoped>
 @use "../assets/scss/variables" as *;
 
-
-
-.my_navbar {
-    background-color: $deliv-primary;
-}
-
-
-.btn5 {
-    display: inline-block;
-    padding: 0.7em 1.4em;
-    margin: 0 0.3em 0.3em 0;
-    border: none;
-    border-radius: 0.5em;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'arial';
-    text-transform: uppercase;
-    font-weight: 400;
-    color: #FFFFFF;
-    background-color: $deliv-elements;
-    box-shadow: inset 0 -0.6em 0 -0.3em rgba(0, 0, 0, 0.20);
-    text-align: center;
-    position: relative;
+.header-button {
+    padding: 9px 20px;
+    border-radius: 50px;
     cursor: pointer;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    transition: all 0.5s ease;
+
+    .col_select,
+    i {
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 15px;
+        color: #3d348b;
+        font-weight: bold;
+    }
 }
 
-.btn5:hover {
-    background: #E64B3E;
+.header-button:hover {
+    background-color: #3d348b;
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+
+    .col_select,
+    i {
+        letter-spacing: 3px;
+        color: white;
+        font-weight: bold;
+    }
 }
 
-.btn5:active {
-    background: #D7372A;
-    top: 0.15em;
-    color: #D9D9D9;
-    box-shadow: none;
+.header-registration-button {
+    padding: 9px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    background-color: #3d348b;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    transition: all 0.5s ease;
+
+    .col_white {
+        letter-spacing: 1.5px;
+        font-size: 15px;
+        text-transform: uppercase;
+        color: white;
+    }
 }
 
+.header-registration-button:hover {
+    background-color: white;
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
 
-span {
-    font-size: 2.5rem;
-    font-weight: bold;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: $deliv-elements;
+    .col_white,
+    i {
+        letter-spacing: 3px;
+        color: #3d348b;
+        font-weight: bold;
+    }
 }
-
-
 </style>
