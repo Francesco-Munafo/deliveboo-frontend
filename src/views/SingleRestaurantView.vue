@@ -47,15 +47,15 @@ export default {
 <template>
   <div v-if="this.restaurantCall">
     <div class="text-center pt-5">
-      <h2>{{ restourant.name }}</h2>
-      <div>{{ restourant.address }}</div>
+      <h2>{{ restaurant.name }}</h2>
+      <div>{{ restaurant.address }}</div>
     </div>
 
     <div>
         <h2 class="text-center mt-5">Il Menù</h2>
       <div class="container mb-5">
         <div class="row text-center">
-          <div class="col-md-3 d-flex mb-4 mt-4" v-for="dish in restourant.dishes">
+          <div class="col-md-3 d-flex mb-4 mt-4" v-for="dish in restaurant.dishes">
 
             <div class="card mb-3 flex-fill">
               <img :src="getImageUrl(dish.image)" class="card-img-top" alt="...">
