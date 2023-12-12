@@ -103,7 +103,7 @@ export default {
 </template>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 .fa-facebook-f {
     color: #4267B2;
 }
