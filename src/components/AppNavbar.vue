@@ -9,13 +9,13 @@ export default {
 
 
 <template>
-    <header class="bg_color navbar py-3 px-1 p-sm-3 pt-lg-2 pb-lg-0">
+    <header class="bg_color navbar py-3 px-1 p-sm-3 p-lg-2">
         <div class="container-lg">
             <div class="d-none d-md-flex align-items-center">
                 <img style="width: 80px" src="/src/assets/img/wired-lineal-13-pizza.gif" alt="pizza">
-                <img style="width: 200px" src="/src/assets/img/Screenshot_2023-12-09_153609-removebg-preview.png"
-                    alt="logo">
+                <img style="width: 200px" src="/src/assets/img/logo1.png" alt="logo">
             </div>
+
             <div class="d-flex gap-3">
                 <button class="d-none d-sm-block btn header-button">
                     <a class="col_select text-decoration-none" href="/">
