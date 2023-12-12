@@ -7,7 +7,7 @@ export default {
 <template>
   <div class="container py-5">
     <div class="row text-center">
-      <div class="col-sm-4">
+      <div class="col-md-4">
         <img
           src="../assets/img/cicogna-pizza.png"
           class="img-fluid w-50"
@@ -19,7 +19,7 @@ export default {
           preferiti oppure trovane di nuovi nei dintorni!
         </p>
       </div>
-      <div class="col-sm-4">
+      <div class="col-md-4">
         <img
           src="../assets/img/cicogna-consegna.png"
           class="img-fluid w-50"
@@ -31,7 +31,7 @@ export default {
           di qualche minuto
         </p>
       </div>
-      <div class="col-sm-4">
+      <div class="col-md-4">
         <img
           src="../assets/img/cicogna-soldi.png"
           class="img-fluid w-50"
