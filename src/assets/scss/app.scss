@@ -9,23 +9,22 @@ a {
   text-decoration: none;
   color: $deliv-black;
 }
-.img_check {
-  background-size: cover;
-  color: $deliv-light;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease-in-out;
-}
-.img_ita {
-  /* background-image: url(../img/cucina_italiana_2.jpeg); */
+
+.checkbox_elements {
   background-color: $deliv-elements;
+  border: 2px solid $deliv-primary;
+  box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.6);
+  border-radius: 5%;
+  color: $deliv-light;
 }
-.img_cinese {
-  background-image: url(../img/cucina_cinese.jpeg);
+.button_primary {
+  background-color: $deliv-primary;
+  border: 2px solid $deliv-elements;
+  padding: 5px;
+  border-radius: 5%;
+  color: $deliv-black;
 }
-.img_messicana {
-  background-image: url(../img/cucina_messicana.jpeg);
-}
+
 .hover_effect:hover {
   color: $deliv-primary;
 }
