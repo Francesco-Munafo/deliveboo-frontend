@@ -45,7 +45,7 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <div v-if="this.restaurantCall">
     <div class="text-center pt-5">
       <h2>{{ restourant.name }}</h2>
       <div>{{ restourant.address }}</div>
