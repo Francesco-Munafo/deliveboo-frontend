@@ -4,13 +4,24 @@ import { createWebHashHistory, createRouter } from "vue-router";
 // 1. Define route components.
 import HomeView from "./views/HomeView.vue";
 import RestaurantsView from "./views/RestaurantsView.vue";
-
+import SingleRestaurantView from "./views/SingleRestaurantView.vue";
+import CartView from "./views/CartView.vue";
+import Page404 from "./views/Page404.vue";
 
 
 // 2. Define some routes
 const routes = [
   { path: "/", name: "Home", component: HomeView },
-  { path: "/restaurants", name: "Restaurants", component: RestaurantsView },
+  {
+    path: "/types/:slug+",
+    name: "Restaurants",
+    component: RestaurantsView,
+  },
+
+
+  { path: "/restaurants/:slug", name: "SingleRestaurantView", component: SingleRestaurantView },
+  { path: "/cart", name: "Cart", component: CartView },
+  { path: "/:pathMatch(.*)*", name: "NotFound", component: Page404 },
 
 ];
 
