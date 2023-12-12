@@ -9,7 +9,7 @@ export default {
 
 
 <template>
-    <header class="bg_color navbar py-3 px-1 p-sm-3 p-md-1 shadow">
+    <header class="bg_color navbar py-3 px-1 p-sm-3 pt-lg-2 pb-lg-0">
         <div class="container-lg">
             <div class="d-none d-md-flex align-items-center">
                 <img style="width: 80px" src="/src/assets/img/wired-lineal-13-pizza.gif" alt="pizza">
@@ -23,9 +23,15 @@ export default {
                     </a>
                 </button>
 
+                <button class="d-none d-sm-block btn header-button">
+                    <a class="col_select text-decoration-none" href="#">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </button>
+
                 <button class="btn header-registration-button">
                     <a class="col_white text-decoration-none" href="http://127.0.0.1:8000/login">
-                        <i class="fa-solid fa-user"></i> Sei un ristoratore?
+                        <i class="fa-solid fa-user"></i> area personale
                     </a>
                 </button>
             </div>
@@ -64,7 +70,6 @@ export default {
 
     .col_select,
     i {
-        letter-spacing: 3px;
         color: white;
         font-weight: bold;
     }
@@ -93,7 +98,6 @@ export default {
 
     .col_white,
     i {
-        letter-spacing: 3px;
         color: #3d348b;
         font-weight: bold;
     }
