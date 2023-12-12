@@ -1,25 +1,20 @@
 <script>
-
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import AppHeader from './components/AppHeader.vue';
+import AppHeader from "./components/AppHeader.vue";
 import AppFooter from "./components/AppFooter.vue";
+
 import axios from "axios";
 
-
-
 import AppNavbar from "./components/AppNavbar.vue";
-import AppBrands from './components/AppBrands.vue';
 
-
-
-
+import AppBrands from "./components/AppBrands.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
       FontAwesomeIcon,
-    }
+    };
   },
 
   components: {
@@ -27,22 +22,11 @@ export default {
     AppFooter,
     AppBrands,
     AppNavbar,
-
-
   },
 
-
-  mounted() { }
+  mounted() {},
 };
 </script>
-
-
-
- 
-
-
-
-
 
 <template>
   <AppNavbar></AppNavbar>
@@ -53,9 +37,4 @@ export default {
   <AppFooter></AppFooter>
 </template>
 
-
-
 <style lang="scss" scoped></style>
-
-
-

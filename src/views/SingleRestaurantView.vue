@@ -7,7 +7,8 @@ export default {
     return {
       FontAwesomeIcon,
       blog_api: `http://127.0.0.1:8000/api/restaurants/${this.$route.params.slug}`,
-      restourant: {},
+      restaurant: {},
+      restaurantCall: false,
     };
   },
   methods: {
@@ -17,10 +18,12 @@ export default {
         .then((response) => {
           console.log("Response from API:", response.data);
           if (response.data.success) {
-            this.restourant = response.data.result;
-            console.log("this.restourant", this.restourant);
+            this.restaurant = response.data.result;
+            this.restaurantCall = true;
+            console.log("this.restaurant", this.restaurant);
           } else {
-            this.$router.push({ name: "ErrorPage" });
+            this.$router.push({ name: 'NotFound' });
+            console.log('errore');
           }
         })
         .catch((err) => {
@@ -70,6 +73,10 @@ export default {
         </div>
       </div>
 
+
     </div>
+  </div>
+  <div v-else>
+    <h1>Ops,non ha funzionato</h1>
   </div>
 </template>
