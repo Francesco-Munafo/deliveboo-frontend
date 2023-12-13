@@ -9,7 +9,7 @@ export default {
 
 
 <template>
-    <header class="bg_color navbar py-3 px-1 p-sm-3 p-lg-2">
+    <header class="bg_color navbar py-3 px-1 p-sm-3 p-lg-2" style="margin-bottom:-5px;">
         <div class="container-lg">
             <div class="d-none d-md-flex align-items-center">
                 <img style="width: 80px" src="/src/assets/img/wired-lineal-13-pizza.gif" alt="pizza">
