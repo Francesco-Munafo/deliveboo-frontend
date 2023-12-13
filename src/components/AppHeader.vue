@@ -7,7 +7,7 @@ export default {
 
 
 <template>
-    <div class="my_jumbo jumbotron jumbotron-fluid pt-5 pb-5">
+    <div class="my_jumbo jumbotron jumbotron-fluid pt-5 pb-5" style="margin-bottom:-5px;">
 
 
         <div class="pt-5">

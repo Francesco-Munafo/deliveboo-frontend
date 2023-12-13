@@ -176,3 +176,7 @@ export default {
     </section>
   </main>
 </template>
+
+<style scoped>
+
+</style>
