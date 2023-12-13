@@ -72,7 +72,8 @@ export default {
           <div class="col-md-6 align-items-center d-flex">
             <div class="card-body text-center">
               <h2 class="card-title">{{ restaurant.name }}</h2>
-              <div>{{ restaurant.address }}</div>
+              <div><font-awesome-icon icon="fa-solid fa-location-dot" class="pe-1" style="color: #3d348b;" />{{
+                restaurant.address }}</div>
               <span v-for="typology in restaurant.types" :key="typology.id" class="mx-1">
                 <span class="badge text-bg-warning my-3">{{ typology.name }}</span>
               </span>
@@ -88,19 +89,17 @@ export default {
 
       <div class="container mt-5">
         <div class="row">
-          <div class="col-md-3 d-flex" v-for="dish in restaurant.dishes">
+          <div class="col-lg-3 col-md-4 col-sm-6 d-flex" v-for="dish in restaurant.dishes">
             <div class="card border-0 shadow-sm flex-fill justify-content-between">
-              <div class="row g-0">
-                <div class="col-5 d-flex align-items-center justify-content-center">
+              <div class="row g-0 align-items-center"> <!-- Aggiunta classe per centrare verticalmente -->
+                <div class="col-5 d-flex align-items-center justify-content-center" style="height: 100px;">
                   <img :src="getImageUrl(dish.image)" class="img-fluid rounded-3" alt="Immagine"
-                    style="max-height: 100px;">
+                    style="max-height: 100%;">
                 </div>
                 <div class="col-7">
-                  <div class="card-body d-flex flex-column justify-content-between">
+                  <div class="card-body">
                     <h5 class="card-title">{{ dish.name }}</h5>
-
                     <p class="card-text">{{ dish.price }} €</p>
-                    <!-- <p class="card-text">{{ dish.description }} €</p> -->
                   </div>
                 </div>
               </div>
@@ -112,6 +111,9 @@ export default {
         </div>
       </div>
 
+
+
+
     </div>
   </div>
   <div v-else>
@@ -119,4 +121,4 @@ export default {
   </div>
 </template>
 
-<style></style>
+<style scoped></style>
