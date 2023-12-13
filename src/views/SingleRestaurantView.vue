@@ -87,25 +87,22 @@ export default {
     <div v-if="restaurant.dishes.length !== 0">
       <h2 class="text-center mt-5">Il Menù</h2>
 
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col-lg-3 col-md-4 col-sm-6 d-flex" v-for="dish in restaurant.dishes">
-            <div class="card border-0 shadow-sm flex-fill justify-content-between">
-              <div class="row g-0 align-items-center"> <!-- Aggiunta classe per centrare verticalmente -->
-                <div class="col-5 d-flex align-items-center justify-content-center" style="height: 100px;">
-                  <img :src="getImageUrl(dish.image)" class="img-fluid rounded-3" alt="Immagine"
-                    style="max-height: 100%;">
-                </div>
-                <div class="col-7">
-                  <div class="card-body">
-                    <h5 class="card-title">{{ dish.name }}</h5>
-                    <p class="card-text">{{ dish.price }} €</p>
-                  </div>
-                </div>
+      <div class="container mt-5 d-flex gap-4">
+    
+
+        <div class="card mb-3" style="max-width: 540px;" v-for="dish in restaurant.dishes">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img :src="getImageUrl(dish.image)" class="img-fluid rounded-start h-100" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ dish.name }}</h5>
+                <p class="card-text">{{ dish.price }}€</p>
+                <button class="btn btn-warning text-white text-decoration-none">
+                  <font-awesome-icon icon="fa-solid fa-cart-shopping" /> Aggiungi al carrello
+                </button>
               </div>
-              <button class="btn btn-warning text-white text-decoration-none">
-                <font-awesome-icon icon="fa-solid fa-cart-shopping" /> Aggiungi al carrello
-              </button>
             </div>
           </div>
         </div>
