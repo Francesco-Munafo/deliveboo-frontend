@@ -201,7 +201,7 @@ export default {
         </div>
       </div>
     </div>
-    <div class="modal" tabindex="-1" role="dialog" :class="{ show: alert }">
+    <!-- <div class="modal" tabindex="-1" role="dialog" :class="{ show: alert }">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -222,6 +222,39 @@ export default {
               Svuota il carrello
             </button>
           </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="modal" tabindex="-1" :class="{ show: alert }">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header flex-column">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              @click="closeModal"
+            ></button>
+            <img src="../assets/img/cicogna-errore.png" class="img-fluid" />
+            <h5 class="modal-title text-warning fst-italic fw-bold fs-3">
+              Attenzione!
+            </h5>
+          </div>
+          <div class="modal-body">
+            <p class="fs-5">
+              Non puoi aggiungere piatti da un altro ristorante! Se vuoi
+              procedere devi prima svuotare il carrello.
+            </p>
+          </div>
+          <button
+            type="button"
+            class="btn btn-danger"
+            @click="deleteCart(), closeErrorModal"
+          >
+            Svuota il carrello
+          </button>
         </div>
       </div>
     </div>
