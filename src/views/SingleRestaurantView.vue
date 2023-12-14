@@ -14,6 +14,7 @@ export default {
       restaurantCall: false,
       aggiungi: 0,
       quantity: 1,
+      alert: false,
     };
   },
   methods: {
@@ -43,6 +44,15 @@ export default {
       }
     },
     getCart(dish) {
+      if (store.cart[0] !== undefined) {
+        console.log(store.cart[0], "TEST CART1");
+        if (store.cart[0].restaurant_id !== dish.restaurant_id) {
+          console.log(store.cart[0].restaurant_id, "TEST CART1 id");
+          this.alert = true;
+          return;
+        }
+      }
+      console.log(this.alert);
       const existingDish = store.cart.find(
         (dishCart) => dishCart.id === dish.id
       );
@@ -56,8 +66,20 @@ export default {
         dish["dishTotalPrice"] = dish.price * dish.quantity;
         store.totalPrice += dish.price;
       }
+      store.saveCartToLocalStorage();
       console.log("store.cart", store.cart);
       console.log("existingDish", existingDish);
+      store.saveTotalPrice();
+    },
+    deleteCart() {
+      store.cart = [];
+      store.saveCartToLocalStorage();
+      store.totalPrice = 0;
+      store.saveTotalPrice();
+      this.alert = false;
+    },
+    closeModal() {
+      this.alert = false;
     },
   },
   mounted() {
@@ -179,10 +201,39 @@ export default {
         </div>
       </div>
     </div>
+    <div class="modal" tabindex="-1" role="dialog" :class="{ show: alert }">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Attenzione!</h5>
+            <button type="button" class="close" @click="closeModal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Non puoi aggiungere piatti da un altro ristorante! Se vuoi procedere
+            devi prima svuotare il carrello.
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-danger"
+              @click="deleteCart(), closeErrorModal"
+            >
+              Svuota il carrello
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
   <div v-else>
     <h1>Loading...</h1>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.modal.show {
+  display: block;
+}
+</style>

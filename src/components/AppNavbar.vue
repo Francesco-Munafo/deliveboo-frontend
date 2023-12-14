@@ -14,6 +14,7 @@ export default {
       if (index !== -1) {
         store.cart.splice(index, 1);
         this.updateTotalPrice();
+        store.saveCartToLocalStorage();
       }
     },
 
@@ -21,6 +22,7 @@ export default {
       if (dish && dish.quantity > 0) {
         dish.dishTotalPrice = dish.price * dish.quantity;
         this.updateTotalPrice();
+        store.saveCartToLocalStorage();
       }
     },
     updateTotalPrice() {
@@ -28,7 +30,16 @@ export default {
         (total, dish) => total + dish.dishTotalPrice,
         0
       );
+      store.saveTotalPrice();
     },
+  },
+  mounted() {
+    if (store.savedCart) {
+      store.cart = JSON.parse(store.savedCart);
+    }
+    if (store.savedTotal) {
+      store.totalPrice = JSON.parse(store.savedTotal);
+    }
   },
 };
 </script>
@@ -113,8 +124,8 @@ export default {
           class="btn header-button col_select d-none d-sm-block"
           type="button"
           data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasRight"
-          aria-controls="offcanvasRight"
+          data-bs-target="#offcanvasWithBothOptions"
+          aria-controls="offcanvasWithBothOptions"
         >
           <i class="fa-solid fa-cart-shopping"></i>
         </button>
@@ -124,11 +135,13 @@ export default {
   <div
     class="offcanvas offcanvas-end w-50 .offcanvas-md"
     tabindex="-1"
-    id="offcanvasRight"
-    aria-labelledby="offcanvasRightLabel"
+    id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel"
   >
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello</h5>
+      <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+        Carrello
+      </h5>
       <button
         type="button"
         class="btn-close"
@@ -214,30 +227,6 @@ export default {
       </div>
     </div>
   </div>
-
-  <!-- <div class="offcanvas offcanvas-end w-50 .offcanvas-md" tabindex="-1" id="offcanvasRight"
-        aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <AppCart></AppCart>
-        </div>
-    </div> -->
-
-  <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-        aria-controls="offcanvasRight">Carrello</button>
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrello</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <AppCart></AppCart>
-        </div>
-    </div> -->
 </template>
 
 <style lang="scss" scoped>
