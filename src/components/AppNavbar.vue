@@ -44,38 +44,6 @@ export default {
 };
 </script>
 
-<!-- <header class="bg_color navbar py-3 px-1 p-sm-3 p-lg-2" style="margin-bottom:-5px;">
-        <div class="container-lg">
-            <div class="d-none d-md-flex align-items-center">
-                <img style="width: 80px" src="/src/assets/img/wired-lineal-13-pizza.gif" alt="pizza">
-                <img style="width: 200px" src="/src/assets/img/logo1.png" alt="logo">
-            </div>
-
-            <div class="d-flex gap-3">
-                <button class="d-none d-sm-block btn header-button">
-                    <a class="col_select text-decoration-none" href="/">
-                        <i class="fa-solid fa-house"></i> Home
-                    </a>
-                </button>
-
-
-                 <button class="d-none d-sm-block btn header-button">
-                    <a class="col_select text-decoration-none" href="#">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </a>
-                </button> -->
-<!-- <AppCart></AppCart>
-
-
-                <button class="btn header-registration-button">
-                    <a class="col_white text-decoration-none" href="http://127.0.0.1:8000/login">
-                        <i class="fa-solid fa-user"></i> area personale
-                    </a>
-                </button>
-            </div>
-        </div>
-    </header> -->
-
 <template>
   <nav class="navbar navbar-expand-lg" style="background-color: #f7b801">
     <div class="container-fluid">
