@@ -45,17 +45,17 @@ export default {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg" style="background-color: #f7b801">
+  <nav class="navbar navbar-expand-lg" style="background-color: #f7b801;">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
         <div class="d-md-flex align-items-center">
           <img
-            style="width: 80px"
+            style="width: 80px;"
             src="/src/assets/img/wired-lineal-13-pizza.gif"
             alt="pizza"
           />
           <img
-            style="width: 200px"
+            style="width: 200px;"
             src="/src/assets/img/logo1.png"
             alt="logo"
           />
@@ -89,13 +89,20 @@ export default {
           </button>
         </div>
         <button
-          class="btn header-button col_select d-none d-sm-block"
+          class="btn header-button col_select d-none d-sm-block position-relative"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasWithBothOptions"
           aria-controls="offcanvasWithBothOptions"
         >
           <i class="fa-solid fa-cart-shopping"></i>
+          <div v-if="store.cart.length > 0">
+            <span
+              class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
+            >
+              <span class="visually-hidden">New alerts</span>
+            </span>
+          </div>
         </button>
       </div>
     </div>
@@ -183,10 +190,16 @@ export default {
                 <strong>€ Totale</strong>
               </li>
             </ul>
-
-            <button class="btn btn-primary btn-lg btn-block" type="submit">
+            <RouterLink
+              to="/cart"
+              class="btn btn-warning btn-lg btn-block"
+              aria-current="page"
+            >
               Procedi al Checkout
-            </button>
+            </RouterLink>
+            <!--    <button class="btn btn-primary btn-lg btn-block" type="submit">
+              Procedi al Checkout
+            </button> -->
           </div>
           <div class="col-md-8 order-md-1">
             <button class="btn btn-link btn-sm">Continua lo shopping</button>
