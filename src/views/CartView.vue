@@ -34,6 +34,13 @@ export default {
       );
       store.saveTotalPrice();
     },
+    getImageUrl(coverImage) {
+      if (coverImage && coverImage.includes("http")) {
+        return coverImage;
+      } else {
+        return "http://127.0.0.1:8000/storage/" + coverImage;
+      }
+    },
   },
   mounted() {
     if (store.savedCart) {
@@ -47,75 +54,139 @@ export default {
 </script>
 
 <template>
-  <div class="container my-5">
-    <h1 class="mb-4">Carrello</h1>
-    <div class="table-responsive">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Prodotto</th>
-            <th scope="col">Prezzo</th>
-            <th scope="col">Quantità</th>
-            <th scope="col">Totale</th>
-            <th scope="col">Azione</th>
-          </tr>
-        </thead>
-        <tbody>
+  <section class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-8 col-lg-8 mb-4">
 
-          <tr v-for="cartDish in store.cart">
-            <td>
-              <div class="media-body">
-                <h5 class="mt-0">{{ cartDish.name }}</h5>
+          <!-- Checkout -->
+          <div class="card shadow-0 border">
+            <div class="p-4">
+              <h5 class="card-title mb-3">Checkout</h5>
+              <div class="row">
+                <div class="col-6 mb-3">
+                  <p class="mb-0">Nome</p>
+                  <div class="form-outline">
+                    <input type="text" id="typeText" placeholder="Inserisci il tuo nome" class="form-control" />
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <p class="mb-0">Cognome</p>
+                  <div class="form-outline">
+                    <input type="text" id="typeText" placeholder="Inserisci il tuo cognome" class="form-control" />
+                  </div>
+                </div>
+
+                <div class="col-6 mb-3">
+                  <p class="mb-0">Telefono</p>
+                  <div class="form-outline">
+                    <input type="tel" id="typePhone" value="+39 " class="form-control" />
+                  </div>
+                </div>
+
+                <div class="col-6 mb-3">
+                  <p class="mb-0">Email</p>
+                  <div class="form-outline">
+                    <input type="email" id="typeEmail" placeholder="example@gmail.com" class="form-control" />
+                  </div>
+                </div>
               </div>
-            </td>
 
-            <td>€ {{ cartDish.price }}</td>
-            <td>
-              <input type="number" class="form-control" v-model="cartDish.quantity" min="0"
-                @input="updateQuantity(cartDish)" />
-            </td>
-            <td>€ {{ cartDish.dishTotalPrice }}</td>
-            <td>
-              <button class="btn btn-danger" @click="deleteCartDish(cartDish)">
-                Rimuovi
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+              <hr class="my-4" />
 
-    <div class="row">
-      <div class="col-md-4 order-md-2 mb-4">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-muted">Il tuo totale</span>
-          <span class="badge badge-secondary badge-pill">3</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Subtotale (EUR)</span>
-            <strong>€ {{ store.totalPrice }}</strong>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Spedizione</span>
-            <strong>€ Costo Spedizione</strong>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Totale (EUR)</span>
-            <strong>€ Totale</strong>
-          </li>
-        </ul>
 
-        <RouterLink to="/cart" class="btn btn-warning btn-lg btn-block" aria-current="page">
-          Procedi al Checkout
-        </RouterLink>
-        <!--    <button class="btn btn-primary btn-lg btn-block" type="submit">
-              Procedi al Checkout
-            </button> -->
+
+              <div class="row">
+                <div class="col-sm-8 mb-3">
+                  <p class="mb-0">Indirizzo</p>
+                  <div class="form-outline">
+                    <input type="text" id="typeText" placeholder="Inserisci il tuo indirizzo" class="form-control" />
+                  </div>
+                </div>
+
+                <div class="col-sm-4 mb-3">
+                  <p class="mb-0">Città</p>
+                  <input type="text" id="typeText" placeholder="Inserisci la tua città" class="form-control">
+                </div>
+
+                <div class="col-sm-4 mb-3">
+                  <p class="mb-0">Casa</p>
+                  <div class="form-outline">
+                    <input type="text" id="typeText" placeholder="Inserisci .." class="form-control" />
+                  </div>
+                </div>
+
+                <div class="col-sm-4 col-6 mb-3">
+                  <p class="mb-0">Codice Postale</p>
+                  <div class="form-outline">
+                    <input type="text" id="typeText" class="form-control" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <p class="mb-0">Messaggio per il venditore</p>
+                <div class="form-outline">
+                  <textarea class="form-control" id="textAreaExample1" rows="2"></textarea>
+                </div>
+              </div>
+
+              <div class="float-end">
+                <button class="btn btn-light border">Cancella</button>
+              </div>
+            </div>
+          </div>
+          <!-- Checkout -->
+        </div>
+        <div class="col-xl-4 col-lg-4 d-flex justify-content-center justify-content-lg-end">
+          <div class="ms-lg-4 mt-4 mt-lg-0" style="max-width: 320px;">
+            <h6 class="mb-3">Il tuo ordine</h6>
+            <div class="d-flex justify-content-between">
+              <p class="mb-2">Prezzo Totale:</p>
+              <p class="mb-2">€ {{ store.totalPrice }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="mb-2">Costo di spedizione:</p>
+              <p class="mb-2">gratis</p>
+            </div>
+            <hr />
+
+            <h6 class="text-dark my-4">Prodotti nel carrello</h6>
+
+            <div class="d-flex align-items-center mb-4" v-for="cartDish in store.cart">
+              <div class="me-3 position-relative">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-secondary">
+                  Quan
+                </span>
+                <img :src="getImageUrl(cartDish.image)" style="height: 96px; width: 96x;" class="img-sm rounded border" />
+              </div>
+              <div class="">
+                <a href="#" class="nav-link">
+                  {{ cartDish.name }}
+                </a>
+                <div class="price text-muted">Prezzo piatto: € {{ cartDish.price }}</div>
+                <div>
+                  <input type="number" class="form-control" v-model="cartDish.quantity" min="0"
+                    @input="updateQuantity(cartDish)" />
+                </div>
+                <div class="d-flex justify-content-between mt-1 align-items-center">
+                  <p class="mb-2 fw-bold pt-2 ">Totale: € {{ cartDish.dishTotalPrice }}</p>
+                  <button class="btn btn-danger py-1 px-2" @click="deleteCartDish(cartDish)">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
       </div>
-      <div class="col-md-8 order-md-1">
-        <button class="btn btn-link btn-sm">Continua lo shopping</button>
-      </div>
     </div>
-  </div>
+  </section>
 </template>
