@@ -23,6 +23,10 @@ export default {
       links: [],
       currentPage: 1,
       maxPages: null,
+      first_page_url: null,
+      last_page_url: null,
+      caricamentoRistoranti: false,
+      totalRestaurants: null,
     };
   },
   methods: {
@@ -48,11 +52,16 @@ export default {
       axios
         .get(url)
         .then((response) => {
-          //console.log(response, "RESPONSE");
+          console.log(response, "RESPONSE");
           this.selectedRestaurants = response.data.results.data;
           this.links = response.data.results.links;
           this.maxPages = response.data.results.last_page;
           this.currentPage = response.data.results.current_page;
+          this.first_page_url = response.data.results.first_page_url;
+          this.last_page_url = response.data.results.last_page_url;
+          this.caricamentoRistoranti = true;
+          this.totalRestaurants = response.data.results.total;
+
           //console.log(this.selectedTypes, "SELECTED TYPES");
           //console.log(this.selectedRestaurants, "SELECTED RESTAURANTS");
         })
@@ -107,10 +116,10 @@ export default {
           </div>
         </div>
 
-        <div class="container my-5">
-          <div class="row text-center">
-            <h2 v-if="this.selectedRestaurants.length > 0">
-              I nostri ristoranti
+        <div class="container mt-5" v-if="this.selectedRestaurants.length > 0">
+          <div class="row justify-content-center">
+            <h2 class="text-center">
+              I nostri ristoranti ({{ this.totalRestaurants }})
             </h2>
             <div class="col-md-4 d-flex mb-4 mt-4" v-for="restaurant in selectedRestaurants">
               <div class="card flex-fill">
@@ -131,20 +140,27 @@ export default {
             </div>
           </div>
         </div>
-        <nav aria-label="Page navigation" class="d-flex justify-content-center">
-          <ul class="pagination mt-5">
-            <li class="page-item" v-for="link in this.links" :class="link.active ? 'active' : ''">
-              <a class="page-link pf_bg_dark" role="button" aria-label="Previous" v-html="link.label"
-                @click="filterRestaurantsByTypes(link.url)">
+
+        <div class="d-flex flex-column align-items-center mt-2"
+          v-if="this.selectedRestaurants.length === 0 & this.caricamentoRistoranti">
+          <span class="fs-4">nessun ristorante trovato</span>
+          <i class="fa-regular fa-face-sad-cry fs-3"></i>
+        </div>
+
+        <nav aria-label="Page navigation" class="d-flex justify-content-center" v-if="first_page_url !== last_page_url">
+          <ul class="pagination">
+            <li class="page-item" v-for="link in this.links">
+              <a class="page-link text-dark" role="button" aria-label="Previous" v-html="link.label"
+                :class="link.active ? 'bg-primary text-white' : ''" @click="filterRestaurantsByTypes(link.url)">
               </a>
             </li>
           </ul>
         </nav>
+
+
       </div>
     </section>
   </main>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

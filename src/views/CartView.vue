@@ -61,6 +61,7 @@ export default {
           </tr>
         </thead>
         <tbody>
+
           <tr v-for="cartDish in store.cart">
             <td>
               <div class="media-body">
@@ -70,13 +71,8 @@ export default {
 
             <td>€ {{ cartDish.price }}</td>
             <td>
-              <input
-                type="number"
-                class="form-control"
-                v-model="cartDish.quantity"
-                min="0"
-                @input="updateQuantity(cartDish)"
-              />
+              <input type="number" class="form-control" v-model="cartDish.quantity" min="0"
+                @input="updateQuantity(cartDish)" />
             </td>
             <td>€ {{ cartDish.dishTotalPrice }}</td>
             <td>
@@ -109,11 +105,8 @@ export default {
             <strong>€ Totale</strong>
           </li>
         </ul>
-        <RouterLink
-          to="/cart"
-          class="btn btn-warning btn-lg btn-block"
-          aria-current="page"
-        >
+
+        <RouterLink to="/cart" class="btn btn-warning btn-lg btn-block" aria-current="page">
           Procedi al Checkout
         </RouterLink>
         <!--    <button class="btn btn-primary btn-lg btn-block" type="submit">

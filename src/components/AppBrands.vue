@@ -16,7 +16,7 @@ export default {
 
 <template>
     <div class="container my-5 text-center py-5">
-        <h3 class="mb-4 fs-2 p-2 text-black">I ristoranti con cui collaboriamo</h3>
+        <h3 class="fs-2 p-2 text-black">I ristoranti con cui collaboriamo</h3>
         <div id="brandsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 
             <!-- Carousel indicators -->
@@ -112,5 +112,6 @@ export default {
 
 .carousel-inner {
     height: 300px;
-}</style>
+}
+</style>
 
