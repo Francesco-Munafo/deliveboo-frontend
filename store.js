@@ -17,4 +17,24 @@ export const store = reactive({
   saveTotalPrice() {
     localStorage.setItem("storageTotalPrice", JSON.stringify(this.totalPrice));
   },
+
+  created() {
+    // Carica il carrello dal localStorage quando il componente viene creato
+    if (store.savedCart) {
+      store.cart = JSON.parse(store.savedCart);
+    }
+  
+    // Carica il prezzo totale dal localStorage quando il componente viene creato
+    if (store.savedTotal) {
+      store.totalPrice = JSON.parse(store.savedTotal);
+    }
+  },
+
+  beforeDestroy() {
+    // Salva il carrello nel localStorage prima che il componente venga distrutto
+    store.saveCartToLocalStorage();
+  
+    // Salva il prezzo totale nel localStorage prima che il componente venga distrutto
+    store.saveTotalPrice();
+  },
 });
