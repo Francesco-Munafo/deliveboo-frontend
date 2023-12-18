@@ -42,14 +42,7 @@ export default {
       }
     },
   },
-  mounted() {
-    if (store.savedCart) {
-      store.cart = JSON.parse(store.savedCart);
-    }
-    if (store.savedTotal) {
-      store.totalPrice = JSON.parse(store.savedTotal);
-    }
-  },
+  
 };
 </script>
 
