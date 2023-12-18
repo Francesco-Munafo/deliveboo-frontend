@@ -1,12 +1,11 @@
 <script>
-import {
-  store
-} from "../../store.js";
+import { store } from "../../store.js";
 export default {
   name: "AppNavbar",
   data() {
     return {
       store,
+      scrollY: 0,
     };
   },
   components: {},
@@ -34,15 +33,40 @@ export default {
       );
       store.saveTotalPrice();
     },
+    handleScroll() {
+      this.scrollY = window.scrollY;
+    },
   },
   mounted() {
+    window.addEventListener('scroll', this.handleScroll);
     if (store.savedCart) {
       store.cart = JSON.parse(store.savedCart);
     }
     if (store.savedTotal) {
       store.totalPrice = JSON.parse(store.savedTotal);
     }
+
   },
+  computed: {
+    iconStyle() {
+      const extraOffset = 300; // distanza per centrarlo
+      const offsetThreshold = 100; // offset per non farlo andare fuori navbar senza lo scroll
+
+      let translateY = this.scrollY;
+      if (this.scrollY > offsetThreshold) {
+        translateY += extraOffset;
+      }
+
+      return {
+        transform: `translateY(${translateY}px)`,
+        transition: 'transform 0.3s ease-in-out',
+      };
+    },
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+
 };
 </script>
 
@@ -72,9 +96,10 @@ export default {
             </a>
           </button>
         </div>
-        <button class="btn header-registration-button col_select d-none d-sm-block position-relative" type="button"
-          data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-          <i class="col_white fa-solid fa-cart-shopping"></i>
+        <button class="btn header-button col_select d-none d-sm-block position-relative" type="button"
+          data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
+          :style="iconStyle">
+          <i class="fa-solid fa-cart-shopping"></i>
           <div v-if="store.cart.length > 0">
             <span
               class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
