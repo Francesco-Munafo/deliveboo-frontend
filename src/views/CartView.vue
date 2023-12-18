@@ -1,7 +1,7 @@
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
-import AppPagamento from "../components/AppPagamento.vue";
+import dropin from "braintree-web-drop-in";
 import { store } from "../../store.js";
 import braintree from "braintree-web";
 export default {
@@ -11,13 +11,8 @@ export default {
       store,
     };
   },
-  components: {
-    AppPagamento,
-  },
+  components: {},
   methods: {
-    /*  */
-
-    /*  */
     deleteCartDish(dish) {
       const index = store.cart.indexOf(dish);
       if (index !== -1) {
@@ -48,8 +43,86 @@ export default {
         return "http://127.0.0.1:8000/storage/" + coverImage;
       }
     },
+    submitPayment() {
+      if (this.dropinInstance != null) {
+        const userData = {
+          name: store.username,
+          email: store.user_email,
+          address: store.address,
+          phone: store.phone,
+          notes: store.notes,
+          price: parseFloat(store.savedTotal),
+          restaurant_id: store.cart[0].restaurant_id,
+        };
+
+        const paymentData = {
+          amount: store.totalPrice,
+          nonce: null,
+        };
+
+        console.log(userData, paymentData, "DATI PRONTI");
+
+        this.dropinInstance.requestPaymentMethod((err, payload) => {
+          document.getElementById("nonce").value = payload.nonce;
+          paymentData.nonce = payload.nonce;
+          console.log(paymentData.nonce);
+          if (err) {
+            console.error(err);
+            return;
+          }
+          axios.post("http://127.0.0.1:8000/api/orders/make/payment", {
+            paymentData: paymentData,
+            userData: userData,
+          });
+        });
+
+        this.deleteCart();
+        this.$router.push("/paymant-success");
+      }
+    },
+    deleteCart() {
+      store.cart = [];
+      store.saveCartToLocalStorage();
+      store.totalPrice = 0;
+      store.saveTotalPrice();
+      this.alert = false;
+    },
+
+    getAuthToken() {
+      axios
+        .get("http://127.0.0.1:8000/api/orders/generate")
+        .then((response) => {
+          if (response.data.success) {
+            this.auth = response.data.token;
+            console.log(this.auth);
+
+            dropin.create(
+              {
+                authorization: this.auth, //  chiave di autorizzazione
+                container: "#dropin-container",
+              },
+              (error, instance) => {
+                if (error) {
+                  console.error(error);
+                  return;
+                }
+
+                // Assegna l'istanza di dropin all'oggetto Vue per poterla utilizzare nei metodi
+                this.dropinInstance = instance;
+              }
+            );
+          } else {
+            console.log("Errore di generazione token");
+          }
+        })
+        .catch((err) => {
+          console.error("Error generationg token:", err.message);
+        });
+    },
   },
-  
+  mounted() {
+    this.getAuthToken();
+  },
 };
 </script>
 
@@ -65,7 +138,7 @@ export default {
                 <h5 class="card-title mb-3">Checkout</h5>
                 <div class="row">
                   <div class="col-6 mb-3">
-                    <p class="mb-0">Nome</p>
+                    <p class="mb-0">Nome e cognome</p>
                     <div class="form-outline">
                       <input
                         type="text"
@@ -74,18 +147,6 @@ export default {
                         class="form-control"
                         v-model="store.username"
                         required
-                      />
-                    </div>
-                  </div>
-
-                  <div class="col-6">
-                    <p class="mb-0">Cognome</p>
-                    <div class="form-outline">
-                      <input
-                        type="text"
-                        id="typeText"
-                        placeholder="Inserisci il tuo cognome"
-                        class="form-control"
                       />
                     </div>
                   </div>
@@ -133,49 +194,32 @@ export default {
                       />
                     </div>
                   </div>
-
-                  <div class="col-sm-4 mb-3">
-                    <p class="mb-0">Città</p>
-                    <input
-                      type="text"
-                      id="typeText"
-                      placeholder="Inserisci la tua città"
-                      class="form-control"
-                    />
-                  </div>
-
-                  <div class="col-sm-4 mb-3">
-                    <p class="mb-0">Casa</p>
-                    <div class="form-outline">
-                      <input
-                        type="text"
-                        id="typeText"
-                        placeholder="Inserisci .."
-                        class="form-control"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="col-sm-4 col-6 mb-3">
-                    <p class="mb-0">Codice Postale</p>
-                    <div class="form-outline">
-                      <input type="text" id="typeText" class="form-control" />
-                    </div>
-                  </div>
                 </div>
 
                 <div class="mb-3">
-                  <p class="mb-0">Messaggio per il venditore</p>
+                  <p class="mb-0">Note</p>
                   <div class="form-outline">
                     <textarea
                       class="form-control"
                       id="textAreaExample1"
                       rows="2"
+                      v-model="store.notes"
                     ></textarea>
                   </div>
                 </div>
 
-                <AppPagamento></AppPagamento>
+                <form @submit.prevent="submitForm">
+                  <div id="dropin-container"></div>
+                  <button
+                    @click="submitPayment()"
+                    id="submitButton"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    Acquista
+                  </button>
+                  <input type="hidden" id="nonce" name="payment_method_nonce" />
+                </form>
                 <div class="float-end">
                   <button class="btn btn-light border">Cancella</button>
                 </div>
@@ -187,7 +231,7 @@ export default {
         <div
           class="col-xl-4 col-lg-4 d-flex justify-content-center justify-content-lg-end"
         >
-          <div class="ms-lg-4 mt-4 mt-lg-0" style="max-width: 320px;">
+          <div class="ms-lg-4 mt-4 mt-lg-0" style="max-width: 320px">
             <h6 class="mb-3">Il tuo ordine</h6>
             <div class="d-flex justify-content-between">
               <p class="mb-2">Prezzo Totale:</p>
@@ -213,7 +257,7 @@ export default {
                 </span>
                 <img
                   :src="getImageUrl(cartDish.image)"
-                  style="height: 96px; width: 96x;"
+                  style="height: 96px"
                   class="img-sm rounded border"
                 />
               </div>
