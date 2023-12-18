@@ -62,6 +62,9 @@ export default {
         transition: 'transform 0.3s ease-in-out',
       };
     },
+    totalDishesCount() {
+      return this.store.cart.reduce((total, dish) => total + dish.quantity, 0);
+    },
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -100,11 +103,8 @@ export default {
           data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
           :style="iconStyle">
           <i class="fa-solid fa-cart-shopping"></i>
-          <div v-if="store.cart.length > 0">
-            <span
-              class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-              <span class="visually-hidden">New alerts</span>
-            </span>
+          <div v-if="totalDishesCount > 0" class="position-absolute top-0 start-100 translate-middle badge bg-danger">
+            {{ totalDishesCount }}
           </div>
         </button>
       </div>
