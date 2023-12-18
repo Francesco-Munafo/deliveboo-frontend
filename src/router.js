@@ -7,6 +7,7 @@ import RestaurantsView from "./views/RestaurantsView.vue";
 import SingleRestaurantView from "./views/SingleRestaurantView.vue";
 import CartView from "./views/CartView.vue";
 import Page404 from "./views/Page404.vue";
+import PaymantSuccess from "./views/PaymantSuccess.vue";
 
 // 2. Define some routes
 const routes = [
@@ -24,6 +25,11 @@ const routes = [
   },
   { path: "/cart", name: "Cart", component: CartView },
   { path: "/:pathMatch(.*)*", name: "NotFound", component: Page404 },
+  {
+    path: "/paymant-success",
+    name: "paymant-success",
+    component: PaymantSuccess,
+  },
 ];
 
 // 3. Create the router instance and pass the `routes` option
