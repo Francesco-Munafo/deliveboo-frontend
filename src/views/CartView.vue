@@ -140,40 +140,23 @@ export default {
                   <div class="col-6 mb-3">
                     <p class="mb-0">Nome e cognome</p>
                     <div class="form-outline">
-                      <input
-                        type="text"
-                        id="username"
-                        placeholder="Inserisci il tuo nome"
-                        class="form-control"
-                        v-model="store.username"
-                        required
-                      />
+                      <input type="text" id="username" placeholder="Inserisci il tuo nome" class="form-control"
+                        v-model="store.username" required />
                     </div>
                   </div>
 
                   <div class="col-6 mb-3">
                     <p class="mb-0">Telefono</p>
                     <div class="form-outline">
-                      <input
-                        type="tel"
-                        id="phone"
-                        value="+39 "
-                        class="form-control"
-                        v-model="store.phone"
-                      />
+                      <input type="tel" id="phone" value="+39 " class="form-control" v-model="store.phone" />
                     </div>
                   </div>
 
                   <div class="col-6 mb-3">
                     <p class="mb-0">Email</p>
                     <div class="form-outline">
-                      <input
-                        type="email"
-                        id="user_email"
-                        placeholder="example@gmail.com"
-                        class="form-control"
-                        v-model="store.user_email"
-                      />
+                      <input type="email" id="user_email" placeholder="example@gmail.com" class="form-control"
+                        v-model="store.user_email" />
                     </div>
                   </div>
                 </div>
@@ -184,14 +167,8 @@ export default {
                   <div class="col-sm-8 mb-3">
                     <p class="mb-0">Indirizzo</p>
                     <div class="form-outline">
-                      <input
-                        type="text"
-                        id="address"
-                        placeholder="Inserisci il tuo indirizzo"
-                        class="form-control"
-                        v-model="store.address"
-                        required
-                      />
+                      <input type="text" id="address" placeholder="Inserisci il tuo indirizzo" class="form-control"
+                        v-model="store.address" required />
                     </div>
                   </div>
                 </div>
@@ -199,23 +176,13 @@ export default {
                 <div class="mb-3">
                   <p class="mb-0">Note</p>
                   <div class="form-outline">
-                    <textarea
-                      class="form-control"
-                      id="textAreaExample1"
-                      rows="2"
-                      v-model="store.notes"
-                    ></textarea>
+                    <textarea class="form-control" id="textAreaExample1" rows="2" v-model="store.notes"></textarea>
                   </div>
                 </div>
 
                 <form @submit.prevent="submitForm">
                   <div id="dropin-container"></div>
-                  <button
-                    @click="submitPayment()"
-                    id="submitButton"
-                    type="button"
-                    class="btn btn-primary"
-                  >
+                  <button @click="submitPayment()" id="submitButton" type="button" class="btn btn-primary">
                     Acquista
                   </button>
                   <input type="hidden" id="nonce" name="payment_method_nonce" />
@@ -228,9 +195,7 @@ export default {
           </form>
           <!-- Checkout -->
         </div>
-        <div
-          class="col-xl-4 col-lg-4 d-flex justify-content-center justify-content-lg-end"
-        >
+        <div class="col-xl-4 col-lg-4 d-flex justify-content-center justify-content-lg-end">
           <div class="ms-lg-4 mt-4 mt-lg-0" style="max-width: 320px">
             <h6 class="mb-3">Il tuo ordine</h6>
             <div class="d-flex justify-content-between">
@@ -245,21 +210,12 @@ export default {
 
             <h6 class="text-dark my-4">Prodotti nel carrello</h6>
 
-            <div
-              class="d-flex align-items-center mb-4"
-              v-for="cartDish in store.cart"
-            >
+            <div class="d-flex align-items-center mb-4" v-for="cartDish in store.cart">
               <div class="me-3 position-relative">
-                <span
-                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-secondary"
-                >
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-secondary">
                   Quan
                 </span>
-                <img
-                  :src="getImageUrl(cartDish.image)"
-                  style="height: 96px"
-                  class="img-sm rounded border"
-                />
+                <img :src="getImageUrl(cartDish.image)" style="height: 96px" class="img-sm rounded border" />
               </div>
               <div class="">
                 <a href="#" class="nav-link">
@@ -269,24 +225,14 @@ export default {
                   Prezzo piatto: € {{ cartDish.price }}
                 </div>
                 <div>
-                  <input
-                    type="number"
-                    class="form-control"
-                    v-model="cartDish.quantity"
-                    min="0"
-                    @input="updateQuantity(cartDish)"
-                  />
+                  <input type="number" class="form-control" v-model="cartDish.quantity" min="0"
+                    @input="updateQuantity(cartDish)" />
                 </div>
-                <div
-                  class="d-flex justify-content-between mt-1 align-items-center"
-                >
+                <div class="d-flex justify-content-between mt-1 align-items-center">
                   <p class="mb-2 fw-bold pt-2">
                     Totale: € {{ cartDish.dishTotalPrice }}
                   </p>
-                  <button
-                    class="btn btn-danger py-1 px-2"
-                    @click="deleteCartDish(cartDish)"
-                  >
+                  <button class="btn btn-danger py-1 px-2" @click="deleteCartDish(cartDish)">
                     <i class="fa-solid fa-xmark"></i>
                   </button>
                 </div>

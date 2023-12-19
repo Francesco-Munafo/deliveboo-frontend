@@ -99,10 +99,10 @@ export default {
             </a>
           </button>
         </div>
-        <button class="btn header-button col_select d-none d-sm-block position-relative" type="button"
+        <button class="btn header-registration-button col_select d-none d-sm-block position-relative" type="button"
           data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
           :style="iconStyle">
-          <i class="fa-solid fa-cart-shopping"></i>
+          <i class="col_white fa-solid fa-cart-shopping"></i>
           <div v-if="totalDishesCount > 0" class="position-absolute top-0 start-100 translate-middle badge bg-danger">
             {{ totalDishesCount }}
           </div>
