@@ -27,7 +27,7 @@ export default {
     <div class="container-fluid">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-4">
         <div class="col-12 col-md-6 col-lg-3 mb-3 text-center">
-          <img src="../assets/img/cicogna-spatola.png" class="img-fluid w-50" />
+          <img src="../assets/img/cicogna-spatola.png" class="img-fluid w-50 img-footer" />
         </div>
 
         <div class="col-12 col-md-6 col-lg-3 mb-3 pt-4">
@@ -85,10 +85,10 @@ export default {
               <a href="#" class="nav-link p-0 text-body-secondary custom-hover">Cuisine</a>
             </li>
 
-            <div class="col-12 col-md-6 col-lg-3 mb-3 pt-4">
+            <div class="col-12 col-md-6 col-lg-3 mb-3 pt-4 text-nowrap">
               <!-- Sezione Follow Us -->
               <h5>Follow us</h5>
-              <div style="margin-left: -10.5px;" class="text-nowrap">
+              <div style="margin-left: -10.5px;">
                 <a href="https://www.facebook.com" class="me-2"><font-awesome-icon icon="fa-brands fa-facebook-f" /></a>
                 <a href="https://www.twitter.com" class="mx-2"><font-awesome-icon icon="fa-brands fa-twitter" /></a>
                 <a href="https://www.instagram.com" class="mx-2"><font-awesome-icon icon="fa-brands fa-instagram" /></a>
@@ -152,9 +152,22 @@ export default {
   text-shadow: -1px -1px 1px #111, 1px 1px 1px #fff;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .row {
     text-align: center;
   }
+  .img-footer{
+    padding-top:25px;
+  }
 }
+
+@media (max-width: 576px) {
+  
+  .img-footer{
+   width: 75% !important;
+  }
+}
+
+
+
 </style>

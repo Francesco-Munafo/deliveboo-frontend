@@ -11,7 +11,8 @@ export default {
 
 
         <div class="pt-5">
-            <h1 style="font-family: Rubik Doodle Shadow;" class="my_title text-center fw-bold">I piatti dei ristoranti che
+            <h1 style="font-family: Rubik Doodle Shadow; padding:0 20px" class="my_title text-center fw-bold">I
+                piatti dei ristoranti che
                 ami e la <br> spesa, a domicilio
             </h1>
         </div>

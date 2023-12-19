@@ -74,7 +74,7 @@ export default {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg" style="background-color: #f7b801;">
+  <nav class="navbar navbar-expand-lg" style="background-color: #f7b801;margin-bottom:-5px;">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
         <div class="d-md-flex align-items-center">
@@ -88,29 +88,29 @@ export default {
       </button>
       <div class="collapse navbar-collapse" id="navbarScroll">
         <div class="d-flex gap-3 ms-auto">
-          <button class="d-none d-sm-block btn header-button">
+          <button class="d-sm-block btn header-button">
             <a class="col_select text-decoration-none" href="/">
               <i class="fa-solid fa-house"></i> Home
             </a>
           </button>
-          <button class="btn header-registration-button me-3">
+          <button class="btn header-registration-button">
             <a class="col_white text-decoration-none" href="http://127.0.0.1:8000/login">
               <i class="fa-solid fa-user"></i> area personale
             </a>
           </button>
+          <button class="btn header-registration-button col_select d-sm-block position-relative z-3" type="button"
+            data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
+            :style="iconStyle">
+            <i class="col_white fa-solid fa-cart-shopping"></i>
+            <div v-if="totalDishesCount > 0" class="position-absolute top-0 start-100 translate-middle badge bg-danger">
+              {{ totalDishesCount }}
+            </div>
+          </button>
         </div>
-        <button class="btn header-registration-button col_select d-none d-sm-block position-relative z-3" type="button"
-          data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
-          :style="iconStyle">
-          <i class="col_white fa-solid fa-cart-shopping"></i>
-          <div v-if="totalDishesCount > 0" class="position-absolute top-0 start-100 translate-middle badge bg-danger">
-            {{ totalDishesCount }}
-          </div>
-        </button>
       </div>
     </div>
   </nav>
-  <div class="offcanvas offcanvas-end w-50 .offcanvas-md" tabindex="-1" id="offcanvasWithBothOptions"
+  <div class="offcanvas offcanvas-end w-50 .offcanvas-md offcanvas-custom" tabindex="-1" id="offcanvasWithBothOptions"
     aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
@@ -157,7 +157,7 @@ export default {
         </div>
 
         <div class="row">
-          <div class="col-md-4 order-md-2 mb-4">
+          <div class="col-md-8 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
               <span class="text-muted">Il tuo totale</span>
               <span class="badge badge-secondary badge-pill">3</span>
@@ -183,7 +183,7 @@ export default {
               Procedi al Checkout
             </button> -->
           </div>
-          <div class="col-md-8 order-md-1">
+          <div class="col-md-4 order-md-1">
             <button class="btn btn-link btn-sm">Continua lo shopping</button>
           </div>
         </div>
@@ -251,5 +251,17 @@ export default {
     color: #3d348b;
     font-weight: bold;
   }
+}
+
+// MEDIA QUERIES
+@media screen and (min-width: 576px) and (max-width: 1200px) {
+   .offcanvas-custom{
+    width:75% !important;
+   }
+}
+@media screen and (max-width: 576px)  {
+   .offcanvas-custom{
+    width:100% !important;
+   }
 }
 </style>

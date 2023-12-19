@@ -151,9 +151,9 @@ export default {
       <h2 class="text-center mt-5">Il Menù</h2>
 
       <div class="container mt-5">
-        <div class="row">
+        <div class="row custom-row">
           <div
-            class="col-lg-3 col-md-4 col-sm-6 d-flex"
+            class="col-lg-3 col-md-4 col-sm-6 d-flex custom-queries custom-card"
             v-for="dish in restaurant.dishes"
           >
             <div
@@ -178,53 +178,25 @@ export default {
                     <p class="card-text">{{ dish.price }} €</p>
                   </div>
                 </div>
-                <!--     <div>
-                  <input
-                    type="number"
-                    :id="dish.id"
-                    :name="dish.name"
-                    min="1"
-                    value="1"
-                    v-model="dish.quantity"
-                  />
-                </div> -->
+          
               </div>
+
+             <div class="custom-button">
               <button
-                class="btn btn-warning text-white text-decoration-none"
+                class="btn btn-warning text-white text-decoration-none custom-width w-100"
                 @click="getCart(dish)"
               >
                 <font-awesome-icon icon="fa-solid fa-cart-shopping" /> Aggiungi
                 al carrello
               </button>
+             </div>
+
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- <div class="modal" tabindex="-1" role="dialog" :class="{ show: alert }">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Attenzione!</h5>
-            <button type="button" class="close" @click="closeModal">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Non puoi aggiungere piatti da un altro ristorante! Se vuoi procedere
-            devi prima svuotare il carrello.
-          </div>
-          <div class="modal-footer">
-            <button
-              class="btn btn-danger"
-              @click="deleteCart(), closeErrorModal"
-            >
-              Svuota il carrello
-            </button>
-          </div>
-        </div>
-      </div>
-    </div> -->
+   
 
     <div class="modal" tabindex="-1" :class="{ show: alert }">
       <div class="modal-dialog">
@@ -269,4 +241,26 @@ export default {
 .modal.show {
   display: block;
 }
+
+@media screen and (max-width: 576px) {
+   .custom-queries{
+    margin-top:30px;
+    margin-bottom:30px;
+   }
+   .custom-width{
+    width:60%;
+   }
+   .custom-button{
+    display: flex;
+    justify-content: center;
+    padding-top:5px;
+   }
+   .custom-card{
+    width:500px;
+   }
+   .custom-row{
+    justify-content: center;
+   }
+}
+
 </style>
