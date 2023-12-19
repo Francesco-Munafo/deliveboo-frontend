@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     iconStyle() {
-      const extraOffset = 300; // distanza per centrarlo
+      const extraOffset = 80; // distanza per centrarlo
       const offsetThreshold = 100; // offset per non farlo andare fuori navbar senza lo scroll
 
       let translateY = this.scrollY;
@@ -99,7 +99,7 @@ export default {
             </a>
           </button>
         </div>
-        <button class="btn header-registration-button col_select d-none d-sm-block position-relative" type="button"
+        <button class="btn header-registration-button col_select d-none d-sm-block position-relative z-3" type="button"
           data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
           :style="iconStyle">
           <i class="col_white fa-solid fa-cart-shopping"></i>
