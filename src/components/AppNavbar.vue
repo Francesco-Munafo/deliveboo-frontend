@@ -99,7 +99,6 @@ export default {
             </a>
           </button>
         </div>
-
         <button class="btn header-registration-button col_select d-none d-sm-block position-relative z-3" type="button"
           data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
           :style="iconStyle">
