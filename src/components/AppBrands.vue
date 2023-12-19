@@ -33,11 +33,11 @@ export default {
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-1.png" alt="Brand 1"
                                 class="img-fluid"></div>
-                        <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-2.jpeg" alt="Brand 2"
+                        <div class="col-lg-3 col-md-6 col-12 sm-none"><img src="../assets/img/images-2.jpeg" alt="Brand 2"
                                 class="img-fluid"></div>
-                        <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-3.png" alt="Brand 3"
+                        <div class="col-lg-3 col-md-6 col-12 dm-none sm-none"><img src="../assets/img/images-3.png" alt="Brand 3"
                                 class="img-fluid"></div>
-                        <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-4.png" alt="Brand 4"
+                        <div class="col-lg-3 col-md-6 col-12 dm-none sm-none"><img src="../assets/img/images-4.png" alt="Brand 4"
                                 class="img-fluid"></div>
                     </div>
                 </div>
@@ -46,11 +46,11 @@ export default {
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-5.jpeg" alt="Brand 5"
                                 class="img-fluid"></div>
-                        <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-6.png" alt="Brand 6"
+                        <div class="col-lg-3 col-md-6 col-12 sm-none"><img src="../assets/img/images-6.png" alt="Brand 6"
                                 class="img-fluid"></div>
-                        <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-7.jpeg" alt="Brand 7"
+                        <div class="col-lg-3 col-md-6 col-12 dm-none sm-none"><img src="../assets/img/images-7.jpeg" alt="Brand 7"
                                 class="img-fluid"></div>
-                        <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-8.png" alt="Brand 8"
+                        <div class="col-lg-3 col-md-6 col-12 dm-none sm-none"><img src="../assets/img/images-8.png" alt="Brand 8"
                                 class="img-fluid"></div>
                     </div>
                 </div>
@@ -58,12 +58,12 @@ export default {
                 <div class="carousel-item">
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-9.png" alt="Brand 9"
+                                class="img-fluid "></div>
+                        <div class="col-lg-3 col-md-6 col-12 sm-none"><img src="../assets/img/images-10.png" alt="Brand 10"
                                 class="img-fluid"></div>
-                        <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-10.png" alt="Brand 10"
+                        <div class="col-lg-3 col-md-6 col-12 dm-none sm-none"><img src="../assets/img/images-11.png" alt="Brand 11"
                                 class="img-fluid"></div>
-                        <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-11.png" alt="Brand 11"
-                                class="img-fluid"></div>
-                        <div class="col-lg-3 col-md-6 col-12"><img src="../assets/img/images-12.png" alt="Brand 12"
+                        <div class="col-lg-3 col-md-6 col-12 dm-none sm-none"><img src="../assets/img/images-12.png" alt="Brand 12"
                                 class="img-fluid"></div>
                     </div>
                 </div>
@@ -84,11 +84,6 @@ export default {
 
 
 <style lang="scss" scoped>
-.carousel-inner img {
-    width: 100%;
-    margin: auto;
-}
-
 .carousel-caption {
     position: absolute;
     top: 50%;
@@ -112,6 +107,31 @@ export default {
 
 .carousel-inner {
     height: 300px;
+}
+
+// img {
+//     width: 250px;
+//     height: 100%;
+//     object-fit: cover;
+// }
+
+// MEDIA QUERIES
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .dm-none{
+        display:none;
+    }
+    .carousel-inner {
+    height: 250px;
+}
+}
+
+@media screen and (max-width: 576px) {
+    .sm-none{
+        display:none;
+    }
+    .carousel-inner {
+    height: 250px;
+}
 }
 </style>
 
