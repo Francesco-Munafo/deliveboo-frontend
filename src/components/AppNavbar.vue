@@ -115,6 +115,7 @@ export default {
             </a>
           </button>
         </div>
+
         <button
           class="btn header-registration-button col_select d-none d-sm-block position-relative z-3"
           type="button"
@@ -128,6 +129,7 @@ export default {
             v-if="totalDishesCount > 0"
             class="position-absolute top-0 start-100 translate-middle badge bg-danger"
           >
+
             {{ totalDishesCount }}
           </div>
         </button>
