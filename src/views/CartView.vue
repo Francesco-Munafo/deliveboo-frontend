@@ -53,7 +53,7 @@ export default {
           phone: store.phone,
           notes: store.notes,
           cart: store.cart,
-          total: parseFloat(store.savedTotal),
+          total: store.totalPrice,
           restaurant_id: store.cart[0].restaurant_id,
         };
         //console.log(userData, "DATI DA PASSARE AL DB");
@@ -89,6 +89,7 @@ export default {
                     const success = response.data.success;
                     if (success) {
                       console.log(response, "👍");
+
                       //Elimini gli elementi dal carrello e dal local storage
                       this.deleteCart();
                       //Pushi la rotta del successo dell'ordine
