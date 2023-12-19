@@ -9,6 +9,7 @@ export default {
   data() {
     return {
       store,
+      errors: [],
     };
   },
   components: {},
@@ -46,14 +47,16 @@ export default {
     submitPayment() {
       if (this.dropinInstance != null) {
         const userData = {
-          name: store.username,
-          email: store.user_email,
+          username: store.username,
+          user_mail: store.user_email,
           address: store.address,
           phone: store.phone,
           notes: store.notes,
-          price: parseFloat(store.savedTotal),
+          cart: store.cart,
+          total: parseFloat(store.savedTotal),
           restaurant_id: store.cart[0].restaurant_id,
         };
+        //console.log(userData, "DATI DA PASSARE AL DB");
 
         const paymentData = {
           amount: store.totalPrice,
@@ -70,14 +73,40 @@ export default {
             console.error(err);
             return;
           }
-          axios.post("http://127.0.0.1:8000/api/orders/make/payment", {
-            paymentData: paymentData,
-            userData: userData,
-          });
+          axios
+            .post("http://127.0.0.1:8000/api/orders/make/payment", {
+              paymentData: paymentData,
+            })
+            //Inizio chiamata axios per il push degli ordini
+            .then((response) => {
+              console.log(response);
+              if (response.data.success) {
+                //chiamata per pushare l'ordine
+                console.log(userData, "INFORMAZIONI INVIATE AL DB");
+                axios
+                  .post("http://127.0.0.1:8000/api/orders/newOrder", userData)
+                  .then((response) => {
+                    const success = response.data.success;
+                    if (success) {
+                      console.log(response, "👍");
+                      //Elimini gli elementi dal carrello e dal local storage
+                      this.deleteCart();
+                      //Pushi la rotta del successo dell'ordine
+                      this.$router.push("/payment-success");
+                    } else {
+                      console.log(response);
+                      console.log(response.data.errors, "👎");
+                      this.errors = response.data.errors;
+                    }
+                  })
+                  .catch((error) => {
+                    console.error(error.message);
+                  });
+              } else {
+                this.$router.push("/order-error");
+              }
+            });
         });
-
-        this.deleteCart();
-        this.$router.push("/paymant-success");
       }
     },
     deleteCart() {
