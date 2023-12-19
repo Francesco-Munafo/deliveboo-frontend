@@ -76,27 +76,12 @@ export default {
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
         <div class="d-md-flex align-items-center">
-          <img
-            style="width: 80px;"
-            src="/src/assets/img/wired-lineal-13-pizza.gif"
-            alt="pizza"
-          />
-          <img
-            style="width: 200px;"
-            src="/src/assets/img/logo1.png"
-            alt="logo"
-          />
+          <img style="width: 80px;" src="/src/assets/img/wired-lineal-13-pizza.gif" alt="pizza" />
+          <img style="width: 200px;" src="/src/assets/img/logo1.png" alt="logo" />
         </div>
       </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarScroll">
@@ -107,28 +92,17 @@ export default {
             </a>
           </button>
           <button class="btn header-registration-button me-3">
-            <a
-              class="col_white text-decoration-none"
-              href="http://127.0.0.1:8000/login"
-            >
+            <a class="col_white text-decoration-none" href="http://127.0.0.1:8000/login">
               <i class="fa-solid fa-user"></i> area personale
             </a>
           </button>
         </div>
 
-        <button
-          class="btn header-registration-button col_select d-none d-sm-block position-relative z-3"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasWithBothOptions"
-          aria-controls="offcanvasWithBothOptions"
-          :style="iconStyle"
-        >
+        <button class="btn header-registration-button col_select d-none d-sm-block position-relative z-3 me-4"
+          type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+          aria-controls="offcanvasWithBothOptions" :style="iconStyle">
           <i class="fa-solid fa-cart-shopping col_white"></i>
-          <div
-            v-if="totalDishesCount > 0"
-            class="position-absolute top-0 start-100 translate-middle badge bg-danger"
-          >
+          <div v-if="totalDishesCount > 0" class="position-absolute top-0 start-100 translate-middle badge bg-danger">
 
             {{ totalDishesCount }}
           </div>
@@ -136,22 +110,13 @@ export default {
       </div>
     </div>
   </nav>
-  <div
-    class="offcanvas offcanvas-end w-50 .offcanvas-md"
-    tabindex="-1"
-    id="offcanvasWithBothOptions"
-    aria-labelledby="offcanvasWithBothOptionsLabel"
-  >
+  <div class="offcanvas offcanvas-end w-50 .offcanvas-md" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
         Carrello
       </h5>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
-      ></button>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
       <div class="container my-5">
@@ -177,20 +142,12 @@ export default {
 
                 <td>€ {{ cartDish.price }}</td>
                 <td>
-                  <input
-                    type="number"
-                    class="form-control"
-                    v-model="cartDish.quantity"
-                    min="0"
-                    @input="updateQuantity(cartDish)"
-                  />
+                  <input type="number" class="form-control" v-model="cartDish.quantity" min="0"
+                    @input="updateQuantity(cartDish)" />
                 </td>
                 <td>€ {{ cartDish.dishTotalPrice }}</td>
                 <td>
-                  <button
-                    class="btn btn-danger"
-                    @click="deleteCartDish(cartDish)"
-                  >
+                  <button class="btn btn-danger" @click="deleteCartDish(cartDish)">
                     Rimuovi
                   </button>
                 </td>
@@ -219,11 +176,7 @@ export default {
                 <strong>€ Totale</strong>
               </li>
             </ul>
-            <RouterLink
-              to="/cart"
-              class="btn btn-warning btn-lg btn-block"
-              aria-current="page"
-            >
+            <RouterLink to="/cart" class="btn btn-warning btn-lg btn-block" aria-current="page">
               Procedi al Checkout
             </RouterLink>
             <!--    <button class="btn btn-primary btn-lg btn-block" type="submit">
