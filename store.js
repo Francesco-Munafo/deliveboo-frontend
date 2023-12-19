@@ -7,8 +7,7 @@ export const store = reactive({
   savedCart: localStorage.getItem("storageCart"),
   savedTotal: localStorage.getItem("storageTotalPrice"),
   totalPrice: 0,
-
-  //Orders user's info
+  /*  Orders user's info */
   username: "",
   address: "",
   user_email: "",
