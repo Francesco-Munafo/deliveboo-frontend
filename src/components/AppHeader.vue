@@ -7,7 +7,7 @@ export default {
 
 
 <template>
-    <div class="my_jumbo jumbotron jumbotron-fluid pt-5 pb-5" style="margin-bottom:-5px;">
+    <div class="my_jumbo jumbotron jumbotron-fluid p-md-5 pb-5" style="margin-bottom:-5px;">
 
 
         <div class="pt-5">
@@ -100,6 +100,7 @@ export default {
 
 <style lang="scss" scoped>
 @use "../assets/scss/variables" as *;
+
 
 @mixin white-gradient {
     background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
@@ -202,5 +203,11 @@ span {
 section {
     background: $deliv-primary;
     padding: 50px 0;
+}
+
+@media screen and (max-width: 576px) {
+    .my_jumbo {
+        padding-top: 7rem;
+    }
 }
 </style>

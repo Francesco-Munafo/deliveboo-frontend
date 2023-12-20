@@ -5,7 +5,6 @@ export default {
   data() {
     return {
       store,
-      scrollY: 0,
     };
   },
   components: {},
@@ -38,7 +37,6 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener("scroll", this.handleScroll);
     if (store.savedCart) {
       store.cart = JSON.parse(store.savedCart);
     }
@@ -47,111 +45,60 @@ export default {
     }
   },
   computed: {
-    iconStyle() {
-      const extraOffset = 80; // distanza per centrarlo
-      const offsetThreshold = 100; // offset per non farlo andare fuori navbar senza lo scroll
-
-      let translateY = this.scrollY;
-      if (this.scrollY > offsetThreshold) {
-        translateY += extraOffset;
-      }
-
-      return {
-        transform: `translateY(${translateY}px)`,
-        transition: "transform 0.3s ease-in-out",
-      };
-    },
     totalDishesCount() {
       return this.store.cart.reduce((total, dish) => total + dish.quantity, 0);
     },
   },
-  beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll);
-  },
 };
 </script>
+
 <template>
-  <nav
-    class="navbar navbar-expand-lg"
-    style="background-color: #f7b801; margin-bottom: -5px;"
-  >
+  <nav class="navbar navbar-expand-lg" style="background-color: #f7b801; margin-bottom: -5px;">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
         <div class="d-md-flex align-items-center">
-          <img
-            style="width: 80px;"
-            src="/src/assets/img/wired-lineal-13-pizza.gif"
-            alt="pizza"
-          />
-          <img
-            style="width: 200px;"
-            src="/src/assets/img/logo1.png"
-            alt="logo"
-          />
+          <img style="width: 80px;" src="/src/assets/img/wired-lineal-13-pizza.gif" alt="pizza" />
+          <img style="width: 200px;" src="/src/assets/img/logo1.png" alt="logo" />
         </div>
       </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarScroll">
         <div class="d-flex gap-3 ms-auto justify-content-end">
           <button class="d-sm-block btn header-button">
-            <a class="col_select text-decoration-none" href="/">
-              <i class="fa-solid fa-house"></i> Home
+            <a class="col_select text-decoration-none d-md-flex align-items-md-center gap-md-2" href="/">
+              <i class="fa-solid fa-house"></i> <span class="d-none d-md-block">Home</span>
             </a>
           </button>
-          <button class="btn header-registration-button">
-            <a
-              class="col_white text-decoration-none"
-              href="http://127.0.0.1:8000/login"
-            >
-              <i class="fa-solid fa-user"></i> area personale
+          <button style="margin-right: 6rem;" class="btn header-registration-button">
+            <a class="col_white text-decoration-none d-md-flex align-items-md-center gap-md-2"
+              href="http://127.0.0.1:8000/login">
+              <i class="fa-solid fa-user"></i> <span class="d-none d-md-block">area personale</span>
             </a>
           </button>
-          <button
-            class="btn header-registration-button col_select d-sm-block position-relative z-3 me-4"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasWithBothOptions"
-            aria-controls="offcanvasWithBothOptions"
-            :style="iconStyle"
-          >
-            <i class="fa-solid fa-cart-shopping col_white"></i>
-            <div
-              v-if="totalDishesCount > 0"
-              class="position-absolute top-0 start-100 translate-middle badge bg-danger"
-            >
-              {{ totalDishesCount }}
-            </div>
-          </button>
+          <div class="position-fixed z-3">
+            <button class="btn header-registration-button col_select d-sm-block position-relative z-3 me-4" type="button"
+              data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+              aria-controls="offcanvasWithBothOptions" :style="iconStyle">
+              <i class="fa-solid fa-cart-shopping col_white"></i>
+              <div v-if="totalDishesCount > 0" class="position-absolute top-0 start-100 translate-middle badge bg-danger">
+                {{ totalDishesCount }}
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </nav>
-  <div
-    class="offcanvas offcanvas-end w-50 .offcanvas-md offcanvas-custom"
-    tabindex="-1"
-    id="offcanvasWithBothOptions"
-    aria-labelledby="offcanvasWithBothOptionsLabel"
-  >
+  <div class="offcanvas offcanvas-end .offcanvas-md offcanvas-custom" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
         Carrello
       </h5>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
-      ></button>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
       <div class="container my-5">
@@ -161,7 +108,7 @@ export default {
             <thead>
               <tr>
                 <th scope="col">Prodotto</th>
-                <th scope="col">Prezzo</th>
+                <th class="d-none d-md-block" scope="col">Prezzo</th>
                 <th scope="col">Quantità</th>
                 <th scope="col">Totale</th>
                 <th scope="col">Azione</th>
@@ -175,23 +122,15 @@ export default {
                   </div>
                 </td>
 
-                <td>€ {{ cartDish.price }}</td>
+                <td class="d-none d-md-block">€ {{ cartDish.price }}</td>
                 <td>
-                  <input
-                    type="number"
-                    class="form-control"
-                    v-model="cartDish.quantity"
-                    min="0"
-                    @input="updateQuantity(cartDish)"
-                  />
+                  <input type="number" class="form-control" v-model="cartDish.quantity" min="0"
+                    @input="updateQuantity(cartDish)" />
                 </td>
                 <td>€ {{ cartDish.dishTotalPrice }}</td>
                 <td>
-                  <button
-                    class="btn btn-danger"
-                    @click="deleteCartDish(cartDish)"
-                  >
-                    Rimuovi
+                  <button class="btn btn-danger" @click="deleteCartDish(cartDish)">
+                    <i class="fa-solid fa-trash"></i>
                   </button>
                 </td>
               </tr>
@@ -212,19 +151,16 @@ export default {
               </li>
               <li class="list-group-item d-flex justify-content-between">
                 <span>Spedizione</span>
-                <strong>€ Costo Spedizione</strong>
+                <strong>gratis</strong>
               </li>
               <li class="list-group-item d-flex justify-content-between">
                 <span>Totale (EUR)</span>
-                <strong>€ Totale</strong>
+                <strong>€ {{ store.totalPrice }}</strong>
               </li>
             </ul>
-            <RouterLink
-              to="/cart"
-              class="btn btn-warning btn-lg btn-block"
-              aria-current="page"
-            >
-              Procedi al Checkout
+            <RouterLink to="/cart">
+              <button class="btn btn-warning btn-lg btn-block" aria-current="page" type="button"
+                data-bs-dismiss="offcanvas" aria-label="Close">Procedi al Checkout</button>
             </RouterLink>
             <!--    <button class="btn btn-primary btn-lg btn-block" type="submit">
               Procedi al Checkout
@@ -306,9 +242,20 @@ export default {
     width: 75% !important;
   }
 }
-@media screen and (max-width: 576px) {
-  .offcanvas-custom {
-    width: 100% !important;
+
+.offcanvas {
+  width: 50%;
+}
+
+@media screen and (max-width: 575px) {
+  .navbar {
+    position: fixed;
+    z-index: 9;
+    width: 100%;
+  }
+
+  .offcanvas {
+    width: 100%;
   }
 }
 </style>

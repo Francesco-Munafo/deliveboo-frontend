@@ -92,7 +92,7 @@ export default {
       <div class="container mt-5">
         <h2 class="text-center">Seleziona il tipo di cucina</h2>
 
-        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-5 row-cols-lg-5 gap-4 justify-content-center pt-4">
+        <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-5 gap-4 justify-content-center pt-4">
           <label class="form-check checkbox_elements bor_color d-flex justify-content-center gap-2 px-5 py-3"
             v-for="typology in this.types" :key="typology.id">
             <input class="form-check-input" type="checkbox" v-model="selectedTypes" :value="typology.id" />
