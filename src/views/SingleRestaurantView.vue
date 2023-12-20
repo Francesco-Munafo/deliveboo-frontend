@@ -103,7 +103,7 @@ export default {
   </svg>
 
   <div v-if="this.restaurantCall">
-    <div class="container py-5">
+    <div class="container mt-5 mt-md-0 py-5">
       <div class="card shadow-lg rounded-5">
         <div class="row g-0">
           <!-- left -->
@@ -134,13 +134,8 @@ export default {
 
       <div class="container mt-5">
         <div class="row custom-row">
-          <div
-            class="col-lg-3 col-md-4 col-sm-6 d-flex custom-queries custom-card"
-            v-for="dish in restaurant.dishes"
-          >
-            <div
-              class="card border-0 shadow-sm flex-fill justify-content-between"
-            >
+          <div class="col-lg-3 col-md-4 col-sm-6 d-flex custom-queries custom-card" v-for="dish in restaurant.dishes">
+            <div class="card border-0 shadow-sm flex-fill justify-content-between">
               <div class="row g-0 align-items-center">
                 <!-- Aggiunta classe per centrare verticalmente -->
                 <div class="col-5 d-flex align-items-center justify-content-center" style="height: 100px">
@@ -153,12 +148,9 @@ export default {
                     <p class="card-text">{{ dish.price }} €</p>
                   </div>
                 </div>
-          
+
               </div>
-              <button
-                class="btn btn-warning text-white text-decoration-none"
-                @click="getCart(dish)"
-              >
+              <button class="btn btn-warning text-white text-decoration-none" @click="getCart(dish)">
                 <font-awesome-icon icon="fa-solid fa-cart-shopping" /> Aggiungi
                 al carrello
               </button>
@@ -167,7 +159,7 @@ export default {
         </div>
       </div>
     </div>
-   
+
 
     <div class="modal" tabindex="-1" :class="{ show: alert }">
       <div class="modal-dialog">
@@ -205,24 +197,32 @@ export default {
 }
 
 @media screen and (max-width: 576px) {
-   .custom-queries{
-    margin-top:30px;
-    margin-bottom:30px;
-   }
-   .custom-width{
-    width:60%;
-   }
-   .custom-button{
+
+  #wave {
+    margin-top: 6rem;
+  }
+
+  .custom-queries {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .custom-width {
+    width: 60%;
+  }
+
+  .custom-button {
     display: flex;
     justify-content: center;
-    padding-top:5px;
-   }
-   .custom-card{
-    width:500px;
-   }
-   .custom-row{
-    justify-content: center;
-   }
-}
+    padding-top: 5px;
+  }
 
+  .custom-card {
+    width: 500px;
+  }
+
+  .custom-row {
+    justify-content: center;
+  }
+}
 </style>
