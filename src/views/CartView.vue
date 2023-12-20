@@ -11,6 +11,7 @@ export default {
       store,
       errors: [],
       success: null,
+      loading: false,
     };
   },
   components: {},
@@ -82,6 +83,7 @@ export default {
             .then((response) => {
               console.log(response);
               if (response.data.success) {
+                this.loading = true;
                 //chiamata per pushare l'ordine
                 console.log(userData, "INFORMAZIONI INVIATE AL DB");
                 axios
@@ -187,7 +189,7 @@ export default {
 </script>
 
 <template>
-  <section class="bg-light py-5">
+  <section class="bg-light py-5" v-if="!this.loading">
     <div class="container">
       <div class="row">
         <div class="col-xl-8 col-lg-8 mb-4">
@@ -288,7 +290,7 @@ export default {
         <div
           class="col-xl-4 col-lg-4 d-flex justify-content-center justify-content-lg-end"
         >
-          <div class="ms-lg-4 mt-4 mt-lg-0" style="max-width: 320px">
+          <div class="ms-lg-4 mt-4 mt-lg-0" style="max-width: 320px;">
             <h6 class="mb-3">Il tuo ordine</h6>
             <div class="d-flex justify-content-between">
               <p class="mb-2">Prezzo Totale:</p>
@@ -314,7 +316,7 @@ export default {
                 </span>
                 <img
                   :src="getImageUrl(cartDish.image)"
-                  style="height: 96px"
+                  style="height: 96px;"
                   class="img-sm rounded border"
                 />
               </div>
@@ -354,4 +356,7 @@ export default {
       </div>
     </div>
   </section>
+  <div class="text-center my-5" v-else>
+    <i class="fa-solid fa-circle-notch fa-spin fs-1"></i>
+  </div>
 </template>
