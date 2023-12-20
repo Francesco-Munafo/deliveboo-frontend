@@ -108,7 +108,8 @@ export default {
         <div class="row g-0">
           <!-- left -->
           <div class="col-md-6">
-            <img :src="getImageUrl(restaurant.image)" class="img-fluid rounded-start" alt="restaurant" />
+            <img style="max-height: 400px;" :src="getImageUrl(restaurant.image)" class="img-fluid rounded-start"
+              alt="restaurant" />
           </div>
           <!-- right -->
           <div class="col-md-6 align-items-center d-flex">

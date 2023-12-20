@@ -122,7 +122,7 @@ export default {
                   </div>
                 </td>
 
-                <td class="d-none d-md-block">€ {{ cartDish.price }}</td>
+                <td>€ {{ cartDish.price }}</td>
                 <td>
                   <input type="number" class="form-control" v-model="cartDish.quantity" min="0"
                     @input="updateQuantity(cartDish)" />
