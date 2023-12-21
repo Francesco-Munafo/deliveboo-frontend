@@ -307,6 +307,7 @@ export default {
       </div>
     </div>
   </section>
+
   <div style="min-height: 40vh;" class="text-center my-5" v-else>
     <i style="font-size: 8rem;" class="fa-solid fa-circle-notch fa-spin text-muted"></i>
   </div>
