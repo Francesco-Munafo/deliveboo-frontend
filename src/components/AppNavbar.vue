@@ -32,9 +32,6 @@ export default {
       );
       store.saveTotalPrice();
     },
-    handleScroll() {
-      this.scrollY = window.scrollY;
-    },
   },
   mounted() {
     if (store.savedCart) {
@@ -81,7 +78,7 @@ export default {
           <div class="position-fixed z-3">
             <button class="btn header-registration-button col_select d-sm-block position-relative z-3 me-4" type="button"
               data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
-              aria-controls="offcanvasWithBothOptions" :style="iconStyle">
+              aria-controls="offcanvasWithBothOptions">
               <i class="fa-solid fa-cart-shopping col_white"></i>
               <div v-if="totalDishesCount > 0" class="position-absolute top-0 start-100 translate-middle badge bg-danger">
                 {{ totalDishesCount }}
