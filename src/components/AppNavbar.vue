@@ -53,37 +53,73 @@ export default {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg" style="background-color: #f7b801; margin-bottom: -5px;">
+  <nav
+    class="navbar navbar-expand-lg"
+    style="background-color: #f7b801; margin-bottom: -5px"
+  >
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
         <div class="d-md-flex align-items-center">
-          <img style="width: 80px;" src="/src/assets/img/wired-lineal-13-pizza.gif" alt="pizza" />
-          <img style="width: 200px;" src="/src/assets/img/logo1.png" alt="logo" />
+          <img
+            style="width: 80px"
+            src="/src/assets/img/wired-lineal-13-pizza.gif"
+            alt="pizza"
+          />
+          <img
+            style="width: 200px"
+            src="/src/assets/img/logo1.png"
+            alt="logo"
+          />
         </div>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarScroll">
         <div class="d-flex gap-3 ms-auto justify-content-end">
           <button class="d-sm-block btn header-button">
-            <a class="col_select text-decoration-none d-md-flex align-items-md-center gap-md-2" href="/">
-              <i class="fa-solid fa-house"></i> <span class="d-none d-md-block">Home</span>
+            <a
+              class="col_select text-decoration-none d-md-flex align-items-md-center gap-md-2"
+              href="/"
+            >
+              <i class="fa-solid fa-house"></i>
+              <span class="d-none d-md-block">Home</span>
             </a>
           </button>
-          <button style="margin-right: 6rem;" class="btn header-registration-button">
-            <a class="col_white text-decoration-none d-md-flex align-items-md-center gap-md-2"
-              href="http://127.0.0.1:8000/login">
-              <i class="fa-solid fa-user"></i> <span class="d-none d-md-block">area personale</span>
+          <button
+            style="margin-right: 6rem"
+            class="btn header-registration-button"
+          >
+            <a
+              class="col_white text-decoration-none d-md-flex align-items-md-center gap-md-2"
+              href="http://127.0.0.1:8000/login"
+            >
+              <i class="fa-solid fa-user"></i>
+              <span class="d-none d-md-block">area personale</span>
             </a>
           </button>
           <div class="position-fixed z-3">
-            <button class="btn header-registration-button col_select d-sm-block position-relative z-3 me-4" type="button"
-              data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
-              aria-controls="offcanvasWithBothOptions" :style="iconStyle">
+            <button
+              class="btn header-registration-button col_select d-sm-block position-relative z-3 me-4"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasWithBothOptions"
+              aria-controls="offcanvasWithBothOptions"
+              :style="iconStyle"
+            >
               <i class="fa-solid fa-cart-shopping col_white"></i>
-              <div v-if="totalDishesCount > 0" class="position-absolute top-0 start-100 translate-middle badge bg-danger">
+              <div
+                v-if="totalDishesCount > 0"
+                class="position-absolute top-0 start-100 translate-middle badge bg-danger"
+              >
                 {{ totalDishesCount }}
               </div>
             </button>
@@ -92,13 +128,22 @@ export default {
       </div>
     </div>
   </nav>
-  <div class="offcanvas offcanvas-end .offcanvas-md offcanvas-custom" tabindex="-1" id="offcanvasWithBothOptions"
-    aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div
+    class="offcanvas offcanvas-end .offcanvas-md offcanvas-custom"
+    tabindex="-1"
+    id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel"
+  >
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
         Carrello
       </h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
     </div>
     <div class="offcanvas-body">
       <div class="container my-5">
@@ -108,7 +153,7 @@ export default {
             <thead>
               <tr>
                 <th scope="col">Prodotto</th>
-                <th class="d-none d-md-block" scope="col">Prezzo</th>
+                <th class="d-none d-md-table-cell" scope="col">Prezzo</th>
                 <th scope="col">Quantità</th>
                 <th scope="col">Totale</th>
                 <th scope="col">Azione</th>
@@ -122,14 +167,22 @@ export default {
                   </div>
                 </td>
 
-                <td class="d-none d-md-block">€ {{ cartDish.price }}</td>
+                <td>€ {{ cartDish.price }}</td>
                 <td>
-                  <input type="number" class="form-control" v-model="cartDish.quantity" min="0"
-                    @input="updateQuantity(cartDish)" />
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model="cartDish.quantity"
+                    min="0"
+                    @input="updateQuantity(cartDish)"
+                  />
                 </td>
                 <td>€ {{ cartDish.dishTotalPrice }}</td>
                 <td>
-                  <button class="btn btn-danger" @click="deleteCartDish(cartDish)">
+                  <button
+                    class="btn btn-danger"
+                    @click="deleteCartDish(cartDish)"
+                  >
                     <i class="fa-solid fa-trash"></i>
                   </button>
                 </td>
@@ -159,8 +212,15 @@ export default {
               </li>
             </ul>
             <RouterLink to="/cart">
-              <button class="btn btn-warning btn-lg btn-block" aria-current="page" type="button"
-                data-bs-dismiss="offcanvas" aria-label="Close">Procedi al Checkout</button>
+              <button
+                class="btn btn-warning btn-lg btn-block"
+                aria-current="page"
+                type="button"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              >
+                Procedi al Checkout
+              </button>
             </RouterLink>
             <!--    <button class="btn btn-primary btn-lg btn-block" type="submit">
               Procedi al Checkout
